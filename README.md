@@ -38,7 +38,8 @@ Predict the Condo sale pricing increase/decrease (%) in Toronto area using a rol
 - Criminal rate in Toronto Area  
 
 ## Data Collection and Processing
-For non-tabular data, web-scrapping and API will be used to collect the data from online source and then save into JSON format. Such JSON data will be converted to tabular form. For special format data (e.g. in PDF file format), an according processing method (i.e. PDF scrapping) will be used to extract and convert such data into tabular form. For tabular data, Python Pandas library will be used for processing, cleaning and filtering.  Post-processed data will then be saved and uploaded to AWS S3 to be accessed by all team members.   
+For non-tabular data, web-scrapping and API will be used to collect the data from online source and then save into JSON format. Such JSON data will be converted to tabular form.  For special format data (e.g. in PDF file format), an according processing method (i.e. PDF scrapping) will be used to extract and convert such data into tabular form.  
+For tabular data, Python Pandas library will be used for processing, cleaning and filtering.  Post-processed data will then be saved and uploaded to AWS S3 to be accessed by all team members.   
 
 ## Machine Learning
 The data processed in the previous step will be splitted into training and testing data for model training. A deep learning model will be deployed (in progress to determine the specific model type) to 
