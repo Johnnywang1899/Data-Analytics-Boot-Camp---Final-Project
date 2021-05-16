@@ -38,8 +38,13 @@ Predict the Condo sale pricing increase/decrease (%) in Toronto area using a rol
 - Criminal rate in Toronto Area  
 
 ## Data Collection and Processing
-For non-tabular data, web-scrapping and API will be used to collect the data from online source and then save into JSON format. Such JSON data will be converted to tabular form.  For special format data (e.g. in PDF file format), an according processing method (i.e. PDF scrapping) will be used to extract and convert such data into tabular form.  
-For tabular data, Python Pandas library will be used for processing, cleaning and filtering.  Post-processed data will then be saved and uploaded to AWS S3 to be accessed by all team members.   
+1. For non-tabular data, web-scrapping and API will be used to collect the data from online source and then save into JSON format. Such JSON data will be converted to tabular form.  
+2. For special format data (e.g. in PDF file format), an according processing method (i.e. PDF scrapping) will be used to extract and convert such data into tabular form.  
+3. For tabular data, Python Pandas library will be used for processing, cleaning and filtering.  
+4. Post-processed data will then be saved and uploaded to AWS S3 to be accessed by all team members.   
 
 ## Machine Learning
-The data processed in the previous step will be splitted into training and testing data for model training. A deep learning model will be deployed (in progress to determine the specific model type) to 
+The data processed in the previous step will be splitted into training and testing data for model training. A deep learning model will be deployed (in progress to determine the specific model type) to fit the training data and for making sale price prediction. The testing data will be used to validate the model and further improvement.  
+
+## Visualization
+A web is planned to be made in order to provide interative visualization to users. Such web will show the geographic appearance of Toronto Area (MapBox) with the options for users to explore different districts in this area. Moreover, pop-up messages will be created for users to gain detailed information including current condo selling situation in Toronto area as well as the predictions of sale price. To better provide visual experience, Plotly will be used to generate line diagram of sale information to provide basic trending. If time allows, more detailed analysis will be conducted for each district in Toronto so that users will be able to gain more compresensive results in Toronto area.
