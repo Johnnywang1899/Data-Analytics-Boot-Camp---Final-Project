@@ -7,6 +7,9 @@ Through evaluating different project topics by complexity, feasibility to comple
 ## Scope
 Predict the Condo sale pricing increase/decrease (%) in the Toronto area using a rolling window (time range for the window TBD).
 
+## Reason
+Real estate can be considered as a stable and beneficial investment option for the public but the current market lacks a reliable tool to make proper predictions of Condo Sale in the Toronto area.
+
 ## Data Source
 1. Historic condo sale pricing data  
 - Market Watch Report in GTA  
@@ -44,7 +47,7 @@ Predict the Condo sale pricing increase/decrease (%) in the Toronto area using a
 4. Post-processed data will then be saved and uploaded to AWS S3 to be accessed by all team members.   
 
 ## Machine Learning
-The data processed in the previous step will be split into training and testing data for model training. A deep learning model will be deployed (in progress to determine the specific model type) to fit the training data and make sale price predictions. The testing data will be used to validate the model and deteremine further improvement.  
+The data processed in the previous step will be split into training and testing data for model training. A deep learning model (Long Short Term Model) will be deployed to fit the training data and make sale price predictions. The testing data will be used to validate the model and deteremine further improvement.  
 
 ## Visualization
 A web is planned to provide interactive visualization to users. Such web will show the geographic appearance of the Toronto Area (MapBox) with the options for users to explore different districts in this area. Moreover, pop-up messages will be created for users to gain detailed information including the current condo selling situation in the Toronto area as well as the predictions for the future. To better provide a visual experience, Plotly will be used to generate line diagrams of sale information to provide basic trending. If time allows, more detailed analysis will be conducted for each district in Toronto so that users will be able to gain more comprehensive results of Condo sale pricing in the Toronto area.
