@@ -1,0 +1,104 @@
+﻿"Cube Title","Product Id","CANSIM Id",URL,"Cube Notes","Archive Status",Frequency,"Start Reference Period","End Reference Period","Total number of dimensions"
+"Building permits, values by activity sector",34100003,026-0003,"https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3410000301",1;5,"ARCHIVED -  a cube publicly available but no longer being updated",Monthly,1948-01-01,2017-12-01,2
+
+"Dimension ID","Dimension name","Dimension Notes","Dimension Correction Notes","Dimension Definitions"
+1,Geography,,,
+2,"Activity sector",,,
+
+"Dimension ID","Member Name","Classification Code","Member ID","Parent Member ID",Terminated,"Member Notes","Member Correction Notes","Member Geo Attribute Keys","Member Definitions"
+1,Canada,[11124],1,,,,,,
+1,"Newfoundland and Labrador",[10],2,1,,,,,
+1,"Prince Edward Island",[11],3,1,,,,,
+1,"Nova Scotia",[12],4,1,,,,,
+1,"New Brunswick",[13],5,1,,,,,
+1,Quebec,[24],6,1,,,,,
+1,Ontario,[35],7,1,,,,,
+1,Manitoba,[46],8,1,,,,,
+1,Saskatchewan,[47],9,1,,,,,
+1,Alberta,[48],10,1,,,,,
+1,"British Columbia",[59],11,1,,,,,
+1,Yukon,[60],12,1,,,,,
+1,"Northwest Territories including Nunavut",,13,1,t,,,,
+1,Nunavut,[62],14,1,,,,,
+1,"Northwest Territories",[61],15,1,,,,,
+1,"Total census metropolitan areas",,16,,,,,,
+1,"Calgary, Alberta",[825],17,16,,,,,
+1,"Saguenay, Quebec",[408],18,16,,4,,,
+1,"Edmonton, Alberta",[835],19,16,,,,,
+1,"Halifax, Nova Scotia",[205],20,16,,,,,
+1,"Hamilton, Ontario",[537],21,16,,,,,
+1,"Ottawa-Gatineau, Quebec part, Ontario/Quebec",[24505],22,45,,3,,,
+1,"Kitchener-Cambridge-Waterloo, Ontario",[541],23,16,,,,,
+1,"London, Ontario",[555],24,16,,,,,
+1,"Montréal, Quebec",[462],25,16,,,,,
+1,"Ottawa-Gatineau, Ontario part, Ontario/Quebec",[35505],26,45,,3,,,
+1,"Québec, Quebec",[421],27,16,,,,,
+1,"Regina, Saskatchewan",[705],28,16,,,,,
+1,"St. Catharines-Niagara, Ontario",[539],29,16,,,,,
+1,"Saint John, New Brunswick",[310],30,16,,,,,
+1,"St. John's, Newfoundland and Labrador",[001],31,16,,,,,
+1,"Saskatoon, Saskatchewan",[725],32,16,,,,,
+1,"Greater Sudbury, Ontario",[580],33,16,,2,,,
+1,"Thunder Bay, Ontario",[595],34,16,,,,,
+1,"Toronto, Ontario",[535],35,16,,,,,
+1,"Vancouver, British Columbia",[933],36,16,,,,,
+1,"Victoria, British Columbia",[935],37,16,,,,,
+1,"Windsor, Ontario",[559],38,16,,,,,
+1,"Winnipeg, Manitoba",[602],39,16,,,,,
+1,"Oshawa, Ontario",[532],40,16,,,,,
+1,"Trois-Rivières, Quebec",[442],41,16,,,,,
+1,"Sherbrooke, Quebec",[433],42,16,,,,,
+1,"Abbotsford-Mission, British Columbia",[932],43,16,,,,,
+1,"Kingston, Ontario",[521],44,16,,,,,
+1,"Ottawa-Gatineau, Ontario/Quebec",[505],45,16,,3,,,
+1,"Barrie, Ontario",[568],46,16,,,,,
+1,"Brantford, Ontario",[543],47,16,,,,,
+1,"Guelph, Ontario",[550],48,16,,,,,
+1,"Kelowna, British Columbia",[915],49,16,,,,,
+1,"Moncton, New Brunswick",[305],50,16,,,,,
+1,"Peterborough, Ontario",[529],51,16,,,,,
+1,"Belleville, Ontario",[522],52,16,,,,,
+1,"Lethbridge, Alberta",[810],53,16,,,,,
+2,"Total residential and non-residential",,1,,,,,,
+2,Residential,,2,1,,,,,
+2,Non-residential,,3,1,,,,,
+2,Industrial,,4,3,,,,,
+2,Commercial,,5,3,,,,,
+2,"Institutional and governmental",,6,3,,,,,
+2,"Other non-specified, non-residential buildings",,7,3,t,,,,
+2,"Single Family",,8,2,,,,,
+2,"Multi -family",,9,2,,,,,
+
+Symbol Legend
+Description,Symbol
+"not available for a specific reference period",..
+"less than the limit of detection",<LOD
+"value rounded to 0 (zero) where there is a meaningful distinction between true zero and the value that was rounded",0s
+"data quality: excellent",A
+"data quality: very good",B
+"data quality: good",C
+"data quality: acceptable",D
+"use with caution",E
+"too unreliable to be published",F
+"not applicable",...
+preliminary,p
+revised,r
+"suppressed to meet the confidentiality requirements of the Statistics Act",x
+terminated,t
+
+"Survey Code","Survey Name"
+2802,"Building Permits"
+
+"Subject Code","Subject Name"
+34,Construction
+
+"Note ID",Note
+1,"The Building permits survey covers all Canadian municipalities that issue permits. The number of Canadian municipalities currently surveyed is approximately 2,400, representing all the provinces and territories. They account for 95% of the Canadian population. Historically, the data are not strictly comparable due to the continuing improvement in coverage and the modifications to the geographical areas required to reflect the most recent census definitions."
+2,"Formerly Sudbury."
+3,"Formerly Ottawa-Hull."
+4,"Formerly Chicoutimi-Jonquière."
+5,"This CANSIM table has been archived. Starting reference month of January 2018, the data can be found in the new CANSIM table 026-0021."
+
+"Correction ID","Correction Date","Correction Note"
+
+
