@@ -1,0 +1,78 @@
+﻿"Job vacancies and average offered hourly wage by occupation (broad occupational category), quarterly, unadjusted for seasonality 1 2",,,,,,,,,,,,,,,,,,,,,,,,,
+Quarterly,,,,,,,,,,,,,,,,,,,,,,,,,
+Table: 14-10-0356-01 (formerly CANSIM 285-0003),,,,,,,,,,,,,,,,,,,,,,,,,
+"Geography: Canada, Province or territory, Economic region",,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+,,"Toronto, Ontario",,,,,,,,,,,,,,,,,,,,,,,
+National Occupational Classification 4,Statistics,Q1 2015,Q2 2015,Q3 2015,Q4 2015,Q1 2016,Q2 2016,Q3 2016,Q4 2016,Q1 2017,Q2 2017,Q3 2017,Q4 2017,Q1 2018,Q2 2018,Q3 2018,Q4 2018,Q1 2019,Q2 2019,Q3 2019,Q4 2019,Q1 2020,Q2 2020,Q3 2020,Q4 2020
+"Total, all occupations",,Number,,,,,,,,,,,,,,,,,,,,,,,
+,Job vacancies 5,"81,120E","89,325A","77,255A","82,125A","76,285A","86,750A","95,120A","90,990A","97,725A","92,365A","94,310A","97,770A","97,070A","99,360A","100,925A","111,315A","98,370A","103,085A","101,345A","99,070A","94,760A",..,..,"100,840A"
+,,Dollars,,,,,,,,,,,,,,,,,,,,,,,
+,Average offered hourly wage 6,20.35E,21.30A,20.60A,20.35A,21.70A,22.70B,22.70A,22.00A,22.65A,22.05A,22.20A,22.05A,23.30A,23.50A,23.60A,23.30A,24.20A,23.80A,23.95A,24.30A,25.40A,..,..,24.70A
+Management occupations  [0],,Number,,,,,,,,,,,,,,,,,,,,,,,
+,Job vacancies 5,"6,075E","6,435C","7,265B","7,155B","9,085B","7,525B","9,620B","8,020B","7,815B","8,650B","7,675A","8,645B","8,770B","7,525A","8,480A","9,050B","8,000B","8,595B","8,145A","7,820B","9,225A",..,..,"7,250B"
+,,Dollars,,,,,,,,,,,,,,,,,,,,,,,
+,Average offered hourly wage 6,34.95E,39.85A,35.60A,35.95A,33.30B,38.85A,39.20A,38.95A,38.45A,37.90A,40.95A,38.30A,41.05A,42.50A,41.70A,43.45A,43.30A,43.75A,43.70A,45.80A,43.75A,..,..,45.55A
+"Business, finance and administration occupations  [1]",,Number,,,,,,,,,,,,,,,,,,,,,,,
+,Job vacancies 5,"11,525E","14,420C","11,440B","11,515B","12,410B","12,370B","18,165B","14,160A","17,770B","15,015A","14,700A","15,545B","17,245B","15,070A","16,295A","18,465A","16,140B","16,370A","15,860A","15,625A","17,110A",..,..,"16,365B"
+,,Dollars,,,,,,,,,,,,,,,,,,,,,,,
+,Average offered hourly wage 6,22.15E,22.85B,22.75A,22.50A,23.40A,22.70A,21.80A,22.30A,23.30A,24.95A,24.60A,23.85A,23.75A,24.60A,24.75A,24.40A,24.45A,24.85A,25.20A,24.25A,24.85A,..,..,24.10A
+Natural and applied sciences and related occupations  [2],,Number,,,,,,,,,,,,,,,,,,,,,,,
+,Job vacancies 5,F,"8,590C","6,235B","6,810B","6,990B","7,865B","9,230B","7,255B","7,395B","8,380B","8,850B","8,005B","8,760B","10,295B","10,175B","10,470B","9,495B","9,590B","9,395B","9,555B","10,175B",..,..,"9,890B"
+,,Dollars,,,,,,,,,,,,,,,,,,,,,,,
+,Average offered hourly wage 6,32.45E,31.60A,31.65A,32.15A,33.90B,32.45A,32.00A,33.25A,32.75A,33.25A,33.70A,33.75A,34.10A,34.15A,34.55A,33.65A,33.50A,32.80A,33.70A,35.55A,35.70A,..,..,38.90B
+Health occupations  [3],,Number,,,,,,,,,,,,,,,,,,,,,,,
+,Job vacancies 5,F,"3,190D","2,840C","2,925C","3,085C","3,650B","3,815B","3,665C","5,480C","4,045B","4,425B","4,970B","5,170B","5,800B","5,660B","5,425B","6,730B","5,855B","6,175B","6,140B","6,430B",..,..,"10,045C"
+,,Dollars,,,,,,,,,,,,,,,,,,,,,,,
+,Average offered hourly wage 6,26.10E,26.25B,28.90B,25.90A,25.05B,26.90A,28.40A,26.50A,28.20A,27.25A,24.95A,27.40A,28.25A,29.15A,29.40A,28.45A,30.50B,29.10A,29.65A,28.40A,28.40B,..,..,27.25C
+"Occupations in education, law and social, community and government services  [4]",,Number,,,,,,,,,,,,,,,,,,,,,,,
+,Job vacancies 5,F,"3,745C","3,350C","3,945D","3,900C","4,055B","4,095C","4,450C","5,275C","4,685B","6,040B","5,525B","6,410D","7,625D","6,665B","6,545B","7,345C","7,110B","6,130B","6,935B","6,110B",..,..,"8,105B"
+,,Dollars,,,,,,,,,,,,,,,,,,,,,,,
+,Average offered hourly wage 6,24.15E,27.80B,22.35B,23.05A,23.90A,24.55A,25.65A,26.50B,25.10A,24.95A,23.65A,26.35A,23.95A,23.40A,24.45A,25.40A,24.95A,25.65A,25.85A,27.75A,26.50A,..,..,24.85A
+"Occupations in art, culture, recreation and sport  [5]",,Number,,,,,,,,,,,,,,,,,,,,,,,
+,Job vacancies 5,F,F,"1,025C","1,735D","1,720D","1,850C","1,935D","2,065D","2,890D","4,125D","2,070C","2,090C","2,150C","2,395C","2,330D","1,855C","2,410D","2,095C","2,650C","1,980C","1,960C",..,..,"1,150C"
+,,Dollars,,,,,,,,,,,,,,,,,,,,,,,
+,Average offered hourly wage 6,17.55E,F,20.60A,22.60A,19.50A,19.30B,21.80A,19.45B,17.70B,19.65B,22.15A,21.80A,23.95B,22.45B,20.90B,21.10A,23.90B,21.95A,21.50A,23.10A,22.40A,..,..,28.30A
+Sales and service occupations  [6],,Number,,,,,,,,,,,,,,,,,,,,,,,
+,Job vacancies 5,F,"26,800B","29,305B","29,910B","25,820A","29,120B","28,635B","30,705B","27,415B","32,585B","33,160B","33,935A","30,475B","33,195B","33,365B","39,260B","31,790B","33,225A","34,080A","33,830B","26,830B",..,..,"31,875B"
+,,Dollars,,,,,,,,,,,,,,,,,,,,,,,
+,Average offered hourly wage 6,13.45E,13.80A,14.05A,13.55A,14.20A,13.85A,14.10A,14.05A,14.65A,14.25A,14.45A,14.85A,16.40A,16.55A,16.30A,16.25A,16.70A,16.35A,16.50A,16.70A,17.90A,..,..,16.80A
+"Trades, transport and equipment operators and related occupations  [7]",,Number,,,,,,,,,,,,,,,,,,,,,,,
+,Job vacancies 5,F,"10,735C","7,685B","9,925C","7,740B","11,420E","12,845D","14,555D","12,850E","9,485B","10,930B","12,590B","12,195B","11,080B","12,220B","13,435B","10,575B","12,455B","11,945B","10,710B","10,590B",..,..,"9,740B"
+,,Dollars,,,,,,,,,,,,,,,,,,,,,,,
+,Average offered hourly wage 6,21.25E,20.40A,19.90A,19.20A,19.90A,30.90D,24.50C,24.00C,25.10C,20.65A,21.25A,19.15A,19.95A,20.95A,20.50A,20.80A,21.85A,22.05A,21.65A,22.10A,21.55A,..,..,22.65A
+"Natural resources, agriculture and related production occupations  [8]",,Number,,,,,,,,,,,,,,,,,,,,,,,
+,Job vacancies 5,F,"2,735E","1,660E","1,125E",900D,"2,210D",815E,"1,460E","1,230D","1,230D","1,220E","1,885E",x,"1,950D",940D,x,"1,035E","1,545D","1,170E",725E,x,..,..,"1,410E"
+,,Dollars,,,,,,,,,,,,,,,,,,,,,,,
+,Average offered hourly wage 6,13.55E,12.90A,13.25A,14.25A,14.40A,14.15A,13.30A,14.90B,14.85B,15.75A,15.25B,16.80A,x,15.95A,15.60A,x,19.10C,19.65C,18.95C,19.35A,x,..,..,20.25B
+Occupations in manufacturing and utilities  [9],,Number,,,,,,,,,,,,,,,,,,,,,,,
+,Job vacancies 5,F,"3,520C","3,470C","4,080D","2,570D","3,845C","4,270C","3,180C","4,925C","3,830C","4,790B","4,085C","4,235C","4,315C","4,400C","5,900C","4,690C","5,110C","5,545C","5,575D","4,955C",..,..,"4,945C"
+,,Dollars,,,,,,,,,,,,,,,,,,,,,,,
+,Average offered hourly wage 6,16.45E,16.60A,14.95A,16.25A,15.85A,15.10A,15.40A,15.90A,15.20A,15.95A,16.10A,16.55A,17.00A,17.25A,17.35A,17.55A,19.20A,17.80A,18.55A,17.85A,17.60A,..,..,17.85A
+Unclassified occupations [7],,Number,,,,,,,,,,,,,,,,,,,,,,,
+,Job vacancies 5,..,"5,350E","2,980C","3,000E","2,060C","2,840E",F,F,"4,685D",F,F,F,x,F,F,x,F,F,F,F,x,..,..,50E
+,,Dollars,,,,,,,,,,,,,,,,,,,,,,,
+,Average offered hourly wage 6,..,19.05E,20.20B,17.70C,24.00B,21.25E,F,F,21.90B,F,F,F,x,F,F,x,F,16.15D,F,F,x,..,..,24.95D
+,,,,,,,,,,,,,,,,,,,,,,,,,
+Symbol legend:,,,,,,,,,,,,,,,,,,,,,,,,,
+..,not available for a specific reference period,,,,,,,,,,,,,,,,,,,,,,,,
+X,suppressed to meet the confidentiality requirements of the Statistics Act,,,,,,,,,,,,,,,,,,,,,,,,
+E,use with caution,,,,,,,,,,,,,,,,,,,,,,,,
+F,too unreliable to be published,,,,,,,,,,,,,,,,,,,,,,,,
+A,data quality: excellent,,,,,,,,,,,,,,,,,,,,,,,,
+B,data quality: very good,,,,,,,,,,,,,,,,,,,,,,,,
+C,data quality: good,,,,,,,,,,,,,,,,,,,,,,,,
+D,data quality: acceptable,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+Footnotes:,,,,,,,,,,,,,,,,,,,,,,,,,
+1,"Data quality indicators are based on the coefficient of variation (CV), the non-response errors, the imputation errors, and subject matter expertise: A – Excellent; B - Very good; C - Good; D – Acceptable; E - Use with caution; F - Too unreliable to publish.",,,,,,,,,,,,,,,,,,,,,,,,
+2,Data for the second and third quarters of 2020 are unavailable due to some Statistics Canada operations being temporarily suspended during the COVID-19 pandemic.,,,,,,,,,,,,,,,,,,,,,,,,
+3,"An economic region (ER) is a grouping of complete census divisions (with one exception in Ontario) created as a standard geographic unit for analysis of regional economic activity. Canada has 76 ERs that are classified in accordance with the Standard Geographical Classification (SGC) 2016, which is based on 2016 Census boundaries. The Job Vacancy and Wage Survey (JVWS) publishes estimates for 69 ERs, seven of which are combined. These seven combined ERs are the same as those published by the Labour Force Survey. Maps illustrating the ERs, as well as a table showing the census metropolitan areas (CMAs) and census agglomerations (CAs) within each ER, are available by selecting the “JVWS Geographical Maps” link at the bottom of the JVWS survey page (5217).",,,,,,,,,,,,,,,,,,,,,,,,
+4,Occupation estimates are based on the National Occupational Classification (NOC) 2016.,,,,,,,,,,,,,,,,,,,,,,,,
+5,"A job is vacant if it meets the following conditions: it is vacant on the reference date (first day of the month) or will become vacant during the month; there are tasks to be carried out during the month for the job in question; and the employer is actively seeking a worker outside the organization to fill the job. The jobs could be full-time, part-time, permanent, temporary, casual, or seasonal. Jobs reserved for subcontractors, external consultants, or other workers who are not considered employees, are excluded.",,,,,,,,,,,,,,,,,,,,,,,,
+6,"The average hourly wage offered by employers for vacant positions. It excludes overtime, tips, commissions and bonuses. Salaries are converted to hourly wages based on information regarding the frequency of pay and the expected average number of hours worked per week. The offered wage may be different from the actual wage paid once the position is filled. If the salary is different among the job vacancies for the same occupation, the respondent is asked to report the lowest wage or salary. When the compensation advertised for the job vacancy is in the form of a salary range or an hourly pay range, the respondent is asked to report the lowest value of the range. If the work will be paid based on, for example, the number of parts produced, mileage or the number of times a task is performed, the respondent is asked to report the expected minimum salary.",,,,,,,,,,,,,,,,,,,,,,,,
+7,Improvements were made to the occupation coding procedures starting in the second quarter of 2017. This has resulted in a decrease in the number of vacancies for which the occupation is unclassified. The new coding procedures do not affect the total number of vacancies.,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,
+"How to cite: Statistics Canada. Table 14-10-0356-01 Job vacancies and average offered hourly wage by occupation (broad occupational category), quarterly, unadjusted for seasonality",,,,,,,,,,,,,,,,,,,,,,,,,
+https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1410035601,,,,,,,,,,,,,,,,,,,,,,,,,
+DOI: https://doi.org/10.25318/1410035601-eng,,,,,,,,,,,,,,,,,,,,,,,,,
