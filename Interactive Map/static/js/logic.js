@@ -312,6 +312,17 @@ function getAreaName(x){
 
 };
 
+function getPriceInfo(region) {
+    const data = 0
+    d3.json("sample.json").then(function (data_1) {
+        var prices = data_1.find(sampleObj => sampleObj.id === region);
+        if (prices) {
+            retval = prices.value
+        }
+    })
+    return 0
+}
+
 //Grabbing our GeoJSON data.
 d3.json(torontoHoods).then(function(data){
     console.log(data);
@@ -328,7 +339,9 @@ d3.json(torontoHoods).then(function(data){
           }
         },
         onEachFeature: function(feature, layer){
-            layer.bindPopup('Region: ' + getAreaName(feature.properties.AREA_S_CD) + "<h4>Present</h4>Month: " + "<br>Sale Price: " + "<br>New Listing " + "<h4>Forecast</h4>" + "Month: " + "<br>Sale Price: " + "<br>New Listing: "),
+            var price = getPriceInfo(getAreaName(feature.properties.AREA_S_CD))
+            console.log(price)
+            layer.bindPopup('Region: ' + getAreaName(feature.properties.AREA_S_CD) + "<h4>Present</h4>Month: " + "<br>Sale Price: " + price + "<br>New Listing " + "<h4>Forecast</h4>" + "Month: " + "<br>Sale Price: " + "<br>New Listing: "),
             layer.on({
                 mouseover: (event) => (event.target.setStyle({fillOpacity: 0.9})),
                 mouseout: (event) => (event.target.setStyle({fillOpacity: 0.5}))
