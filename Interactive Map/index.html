@@ -18,16 +18,22 @@
 <body>
 
     <form>
-        <h3>Please select type</h3>
-        <select id="dropDownListType" onchange = "typeOptionChange(this.value)">
+        <div class="jumbotron">
+            <h3>Please select type</h3>
+        </div>
+        
+        <select id="dropDownListType" onchange = "typeOptionChange(this.value)" style="width:150px;">
             <option value = "" disabled selected hidden>Please select a type</option>
             <option value="Historic">Historic</option>
             <option value="Forecast">Forecast</option>
         </select>
-        <h3>Please select time</h3>
-        <select id="dropDownListTime" onchange = "timeOptionChange(this.value)">
+        <div class="jumbotron">
+            <h3>Please select time</h3>
+        </div>
+        <select id="dropDownListTime" onchange = "timeOptionChange(this.value)" style="width:150px;">
             <option value = "" disabled selected hidden>Please select a date</option>
         </select>
+        
     </form>
 
     <div id="map-container">

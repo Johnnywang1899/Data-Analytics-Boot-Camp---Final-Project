@@ -73,28 +73,22 @@ L.geoJSON(sanFranAirport, {
 // Accessing the air port GeoJSON URL
 let torontoHoods = "https://raw.githubusercontent.com/Johnnywang1899/Mapping_Earthquakes/Mapping_GeoJSON_Polygons/torontoNeighborhoods.json";
 
-// create the style of the lines
-let myStyle = {
-    color : "yellow",
-    weight : 2
-};
-
 function getAreaColor(x){
     // Area W
     if (['001', '002', '003', '004', '005'].includes(x)) {
         return 'SpringGreen' ;
     }
     else if (['006', '007', '008'].includes(x)) {
-        return 'AntiqueWhite' ;
+        return 'Thistle' ;
     }
     else if (['009', '010', '011', '012', '013', '014', '015'].includes(x)) {
         return 'Aqua' ;
     }
     else if (['016'].includes(x)) {
-        return 'Aquamarine' ;
+        return 'Red' ;
     }
     else if (['017', '018', '019', '020'].includes(x)) {
-        return 'Beige' ;
+        return 'SandyBrown' ;
     }
     else if (['021', '022', '023', '024', '025', '026', '027'].includes(x)) {
         return 'Blue' ;
@@ -123,7 +117,7 @@ function getAreaColor(x){
         return 'CornflowerBlue' ;
     }
     else if (['103', '102', '105', '039', '032'].includes(x)) {
-        return 'Cornsilk' ;
+        return 'SlateBlue' ;
     }
     else if (['034', '033'].includes(x)) {
         return 'DarkCyan' ;
@@ -164,7 +158,7 @@ function getAreaColor(x){
         return 'DodgerBlue' ;
     }
     else if (['061', '054', '060', '058', '059', '066', '057', '067'].includes(x)) {
-        return 'FloralWhite' ;
+        return 'Orchid' ;
     }
     else if (['120', '124', '125', '119', '126'].includes(x)) {
         return 'Gold' ;
@@ -179,13 +173,13 @@ function getAreaColor(x){
         return 'HotPink' ;
     }
     else if (['140', '139', '123', '138'].includes(x)) {
-        return 'LavenderBlush' ;
+        return 'MediumPurple' ;
     }
     else if (['135', '137', '127'].includes(x)) {
         return 'LightBlue' ;
     }
     else if (['133', '134', '136'].includes(x)) {
-        return 'LightGoldenRodYellow' ;
+        return 'MediumSpringGreen' ;
     }
     else if (['131', '132'].includes(x)) {
         return 'OrangeRed' ;
@@ -315,13 +309,13 @@ function getAreaName(x){
 };
 
 function getPriceInfo(region) {
-    const area = data.find(item => item.area_code === region);
+    const area = data.find(item => item.Area_Code === region);
     if (area) {
         const retval = {
-            date: area.date,
-            total_num: area.total_num,
-            avg_price: area.avg_price,
-            med_price: area.med_price
+            date: area.Date,
+            total_num: area.Total_Condo_Sold_Number,
+            avg_price: area.Avg_Price,
+            new_unit: area.New_Units_Number_construction_complete
         };
         //console.log(my_selected_time);
         return retval;
@@ -329,13 +323,13 @@ function getPriceInfo(region) {
 }
 
 function getPriceInfo_withdate(region, date_select) {
-    const area = data.find(item => item.area_code === region & item.date === date_select);
+    const area = data.find(item => item.Area_Code === region & item.Date === date_select);
     if (area) {
         const retval = {
-            date: area.date,
-            total_num: area.total_num,
-            avg_price: area.avg_price,
-            med_price: area.med_price
+            date: area.Date,
+            total_num: area.Total_Condo_Sold_Number,
+            avg_price: area.Avg_Price,
+            new_unit: area.New_Units_Number_construction_complete
         };
         //console.log(my_selected_time);
         return retval;
@@ -345,7 +339,7 @@ function getPriceInfo_withdate(region, date_select) {
             date: 'N/A',
             total_num: 'N/A',
             avg_price: 'N/A',
-            med_price: 'N/A'
+            new_unit: 'N/A'
         };
         //console.log(my_selected_time);
         return retval;
@@ -387,7 +381,7 @@ function timeOptionChange(selected_date){
                 const area_code = getAreaName(feature.properties.AREA_S_CD);
                 const area_info = getPriceInfo_withdate(getAreaName(feature.properties.AREA_S_CD), date_condition);
                 const html_content = '<b>Region: ' + area_code + "</b><br>Month: " + area_info.date + "<br>Average Price: " + area_info.avg_price +
-                "<br>Total Sold: " + area_info.total_num;
+                "<br>Total Units Sold: " + area_info.total_num + "<br>New Units (Toronto): " + area_info.new_unit;
                 layer.bindPopup(html_content),
                 layer.on({
                     mouseover: (event) => (event.target.setStyle({fillOpacity: 1})),
@@ -416,7 +410,7 @@ d3.json(torontoHoods).then(function(data){
             const area_code = getAreaName(feature.properties.AREA_S_CD);
             const area_info = getPriceInfo_withdate(getAreaName(feature.properties.AREA_S_CD), initial_date);
             const html_content = '<b>Region: ' + area_code + "</b><br>Month: " + area_info.date + "<br>Average Price: " + area_info.avg_price +
-            "<br>Total Sold: " + area_info.total_num;
+            "<br>Total Units Sold: " + area_info.total_num + "<br>New Units (Toronto): " + area_info.new_unit;;
             layer.bindPopup(html_content),
             layer.on({
                 mouseover: (event) => (event.target.setStyle({fillOpacity: 1})),

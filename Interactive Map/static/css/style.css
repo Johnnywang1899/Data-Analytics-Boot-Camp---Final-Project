@@ -9,6 +9,24 @@ body,
 
 }
 
+.jumbotron{
+  text-shadow: 1px 1px 10px greenyellow;
+  font-family: Arial;
+  font-weight: bold;
+}
+
+#dropDownListType {
+  background-color: rgb(214, 255, 190);
+  top: 14px;
+
+  font-family: Arial;
+}
+
+#dropDownListTime {
+  background-color: rgb(214, 255, 190);
+  font-family: Arial;
+}
+
 #html, #body, #map-container {
   height: 100%;
 }
