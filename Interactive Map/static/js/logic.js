@@ -313,13 +313,11 @@ function getAreaName(x){
 };
 
 function getPriceInfo(region) {
-    const data = 0
-    d3.json("sample.json").then(function (data_1) {
-        var prices = data_1.find(sampleObj => sampleObj.id === region);
-        if (prices) {
-            retval = prices.value
-        }
-    })
+    const pricingData = data
+    var prices = pricingData.find(item => item.id === region);
+    if (prices) {
+        return prices.value
+    }
     return 0
 }
 
