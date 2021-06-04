@@ -327,7 +327,6 @@ function getPriceInfo(region) {
 
 //Grabbing our GeoJSON data.
 d3.json(torontoHoods).then(function(data){
-    console.log(data);
 
     L.geoJSON(data, {
         style : function(feature){
@@ -385,7 +384,7 @@ let baseMaps = {
 
 let map = L.map("mapid", {
     center: [43.72, -79.4],
-    zoom: 12,
+    zoom: 11,
     layers: [darkStreets]
 });
 
