@@ -313,12 +313,16 @@ function getAreaName(x){
 };
 
 function getPriceInfo(region) {
-    const pricingData = data
-    var prices = pricingData.find(item => item.id === region);
-    if (prices) {
-        return prices.value
+    const area = data.find(item => item.area_code === region);
+    if (area) {
+        const retval = {
+            date: area.date,
+            total_num: area.total_num,
+            avg_price: area.avg_price,
+            med_price: area.med_price
+        };
+        return retval;
     }
-    return 0
 }
 
 //Grabbing our GeoJSON data.
@@ -337,9 +341,11 @@ d3.json(torontoHoods).then(function(data){
           }
         },
         onEachFeature: function(feature, layer){
-            var price = getPriceInfo(getAreaName(feature.properties.AREA_S_CD))
-            console.log(price)
-            layer.bindPopup('Region: ' + getAreaName(feature.properties.AREA_S_CD) + "<h4>Present</h4>Month: " + "<br>Sale Price: " + price + "<br>New Listing " + "<h4>Forecast</h4>" + "Month: " + "<br>Sale Price: " + "<br>New Listing: "),
+            const area_code = getAreaName(feature.properties.AREA_S_CD);
+            const area_info = getPriceInfo(getAreaName(feature.properties.AREA_S_CD));
+            const html_content = '<b>Region: ' + area_code + "</b><br><br>Month: " + area_info.date + "<br>Average Price: " + area_info.avg_price +
+            "<br>Median Price: " + area_info.med_price + "<br>Total Sold: " + area_info.total_num;
+            layer.bindPopup(html_content),
             layer.on({
                 mouseover: (event) => (event.target.setStyle({fillOpacity: 0.9})),
                 mouseout: (event) => (event.target.setStyle({fillOpacity: 0.5}))
