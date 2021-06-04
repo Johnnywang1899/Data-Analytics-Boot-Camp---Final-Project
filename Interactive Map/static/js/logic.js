@@ -1,6 +1,8 @@
 // Add console.log to check to see if our code is working.
 console.log("working");
 
+// Initialize the date
+var initial_date = '2021-04-01';
 
 //  Add a marker to the map for Los Angeles, California.
 // let marker = L.marker([34.0522, -118.2437]).addTo(map);
@@ -321,8 +323,79 @@ function getPriceInfo(region) {
             avg_price: area.avg_price,
             med_price: area.med_price
         };
+        //console.log(my_selected_time);
         return retval;
     }
+}
+
+function getPriceInfo_withdate(region, date_select) {
+    const area = data.find(item => item.area_code === region & item.date === date_select);
+    if (area) {
+        const retval = {
+            date: area.date,
+            total_num: area.total_num,
+            avg_price: area.avg_price,
+            med_price: area.med_price
+        };
+        //console.log(my_selected_time);
+        return retval;
+    }
+    else {
+        const retval = {
+            date: 'N/A',
+            total_num: 'N/A',
+            avg_price: 'N/A',
+            med_price: 'N/A'
+        };
+        //console.log(my_selected_time);
+        return retval;
+    }
+}
+
+function typeOptionChange(selected_type){
+    dropDownTime = d3.select("#dropDownListTime");
+    dropDownTime.html("");
+    if (selected_type === 'Historic'){
+        historicTimes.reverse().forEach((historicTime) => {
+            dropDownTime.append("option").text(historicTime.Date).property("value", historicTime.Date);
+        })
+    }
+    else if (selected_type === "Forecast"){
+        forecastTimes.forEach((forecastTime) => {
+            dropDownTime.append("option").text(forecastTime.Date).property("value", forecastTime.Date);
+        })
+    }
+}
+
+function timeOptionChange(selected_date){
+    var date_condition = selected_date;
+
+    d3.json(torontoHoods).then(function(data){
+
+        L.geoJSON(data, {
+            style : function(feature){
+                return {
+                fillColor: getAreaColor(feature.properties.AREA_S_CD),
+                weight: 1,
+                opacity: 0,
+                color: getAreaColor(feature.properties.AREA_S_CD),
+                dashArray: '3',
+                fillOpacity: 0
+              }
+            },
+            onEachFeature: function(feature, layer){
+                const area_code = getAreaName(feature.properties.AREA_S_CD);
+                const area_info = getPriceInfo_withdate(getAreaName(feature.properties.AREA_S_CD), date_condition);
+                const html_content = '<b>Region: ' + area_code + "</b><br>Month: " + area_info.date + "<br>Average Price: " + area_info.avg_price +
+                "<br>Total Sold: " + area_info.total_num;
+                layer.bindPopup(html_content),
+                layer.on({
+                    mouseover: (event) => (event.target.setStyle({fillOpacity: 1})),
+                    mouseout: (event) => (event.target.setStyle({fillOpacity: 0}))
+                })
+            }
+        }).addTo(map);
+    });
 }
 
 //Grabbing our GeoJSON data.
@@ -333,21 +406,21 @@ d3.json(torontoHoods).then(function(data){
             return {
             fillColor: getAreaColor(feature.properties.AREA_S_CD),
             weight: 1,
-            opacity: 0.5,
+            opacity: 0.7,
             color: getAreaColor(feature.properties.AREA_S_CD),
             dashArray: '3',
-            fillOpacity: 0.5
+            fillOpacity: 0.7
           }
         },
         onEachFeature: function(feature, layer){
             const area_code = getAreaName(feature.properties.AREA_S_CD);
-            const area_info = getPriceInfo(getAreaName(feature.properties.AREA_S_CD));
-            const html_content = '<b>Region: ' + area_code + "</b><br><br>Month: " + area_info.date + "<br>Average Price: " + area_info.avg_price +
-            "<br>Median Price: " + area_info.med_price + "<br>Total Sold: " + area_info.total_num;
+            const area_info = getPriceInfo_withdate(getAreaName(feature.properties.AREA_S_CD), initial_date);
+            const html_content = '<b>Region: ' + area_code + "</b><br>Month: " + area_info.date + "<br>Average Price: " + area_info.avg_price +
+            "<br>Total Sold: " + area_info.total_num;
             layer.bindPopup(html_content),
             layer.on({
-                mouseover: (event) => (event.target.setStyle({fillOpacity: 0.9})),
-                mouseout: (event) => (event.target.setStyle({fillOpacity: 0.5}))
+                mouseover: (event) => (event.target.setStyle({fillOpacity: 1})),
+                mouseout: (event) => (event.target.setStyle({fillOpacity: 0.7}))
             })
         }
     }).addTo(map);
@@ -385,7 +458,7 @@ let baseMaps = {
 let map = L.map("mapid", {
     center: [43.72, -79.4],
     zoom: 11,
-    layers: [darkStreets]
+    layers: [light]
 });
 
 // Pass our map layers into our layers control and add the layers control to the map.
