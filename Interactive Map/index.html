@@ -11,37 +11,71 @@
         crossorigin="" />
     <!-- d3 JavaScript -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="static/css/bootstrap.css">
     <!-- Our CSS -->
-    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
-
-    <form>
-        <div class="jumbotron">
-            <h3>Please select type</h3>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>PROJECT XXX</h1>
+            <h2>My Project Description</h2>
         </div>
-        
-        <select id="dropDownListType" onchange = "typeOptionChange(this.value)" style="width:150px;">
-            <option value = "" disabled selected hidden>Please select a type</option>
-            <option value="Historic">Historic</option>
-            <option value="Forecast">Forecast</option>
-        </select>
-        <div class="jumbotron">
-            <h3>Please select time</h3>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-header">
+                <h4> Section 1: Display Map Data</h4>
+            </div>
         </div>
-        <select id="dropDownListTime" onchange = "timeOptionChange(this.value)" style="width:150px;">
-            <option value = "" disabled selected hidden>Please select a date</option>
-        </select>
-        
-    </form>
+        <div class="col-lg-4">
+            <div class="panel panel-primary map-panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">What Data Do You Need?</h3>
+                </div>
+                <div class="panel-body">
+                    <label>Select Data Type</label>
+                    <select class="form-control" id="dropDownListType" onchange="typeOptionChange(this.value)">
+                        <option value="" disabled selected hidden>Please select a type</option>
+                        <option value="Historic">Historic</option>
+                        <option value="Forecast">Forecast</option>
+                    </select>
 
-    <div id="map-container">
-        <div id="mapid"></div>
+                    <label>Select Time</label>
+                    <select class="form-control" id="dropDownListTime" onchange="timeOptionChange(this.value)">
+                        <option value="" disabled selected hidden>Please select a date</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div id="mapid"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-header">
+                <h4> Section 2: Graphs</h4>
+            </div>
 
+
+        </div>
     </div>
 
 
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-header">
+                <h4> Section 3: Machine Learning Models</h4>
+            </div>
+
+
+        </div>
+    </div>
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
@@ -55,6 +89,7 @@
     <script type="text/javascript" src="static/js/Historic_Time.js"></script>
     <script type="text/javascript" src="static/js/Forecast_Time.js"></script>
 
+    <script></script>
 </body>
 
 </html>

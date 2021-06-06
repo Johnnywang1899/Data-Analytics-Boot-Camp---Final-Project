@@ -1,32 +1,59 @@
-html,
-body,
-#mapid {
-  width: 80%;
-  height: 80%;
+/* Global Styles */
 
-  margin-left:19%; 
-  margin-right:5%
-
-}
-
-.jumbotron{
-  text-shadow: 1px 1px 10px greenyellow;
-  font-family: Arial;
-  font-weight: bold;
-}
-
-#dropDownListType {
-  background-color: rgb(214, 255, 190);
-  top: 14px;
-
-  font-family: Arial;
-}
-
-#dropDownListTime {
-  background-color: rgb(214, 255, 190);
-  font-family: Arial;
-}
-
-#html, #body, #map-container {
+html, body {
   height: 100%;
+  margin-top: 100px;
+  background-color: rgb(212, 231, 255);
+  margin-left:5%; 
+  margin-right:5%
 }
+
+.map-panel {
+  height: 400px; 
+}
+
+#mapid {
+  position: relative;
+  border: 1px solid rgb(37, 37, 37);
+  border-radius: 8px;
+  height: 400px; 
+  width: 100%;  
+}
+
+h1 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 600;
+  font-size: 60px;
+  text-align: center;
+}
+
+h2 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 100;
+  font-size: 30px;
+  text-align: center;
+}
+
+h4 {
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: left;
+}
+
+.page-header {
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #8ca0cc;
+  color: #7485ad;
+}
+
+.panel-primary > .panel-heading {
+  color: #ffffff;
+  background-color: #7485ad;
+  border-color: #7485ad;
+}
+
+
+
+

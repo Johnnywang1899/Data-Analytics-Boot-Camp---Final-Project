@@ -347,6 +347,8 @@ function getPriceInfo_withdate(region, date_select) {
 }
 
 function typeOptionChange(selected_type){
+    map.closePopup()
+
     dropDownTime = d3.select("#dropDownListTime");
     dropDownTime.html("");
     if (selected_type === 'Historic'){
@@ -362,6 +364,7 @@ function typeOptionChange(selected_type){
 }
 
 function timeOptionChange(selected_date){
+    map.closePopup()
     var date_condition = selected_date;
 
     d3.json(torontoHoods).then(function(data){
@@ -414,7 +417,9 @@ d3.json(torontoHoods).then(function(data){
             layer.bindPopup(html_content),
             layer.on({
                 mouseover: (event) => (event.target.setStyle({fillOpacity: 1})),
-                mouseout: (event) => (event.target.setStyle({fillOpacity: 0.7}))
+                mouseout: (event) => (event.target.setStyle({fillOpacity: 0.7})),
+                closeOnClick: true,
+                autoClose: true
             })
         }
     }).addTo(map);
