@@ -4,73 +4,21 @@ console.log("working");
 // Initialize the date
 var initial_date = '2021-04-01';
 
-//  Add a marker to the map for Los Angeles, California.
-// let marker = L.marker([34.0522, -118.2437]).addTo(map);
-/*L.circle([34.0522, -118.2437], {
-    radius: 100
-}).addTo(map); 
-L.circleMarker([34.0522, -118.2437], {
-    radius: 300,
-    color: "black",
-    fillColor: '#DC143C'
-}).addTo(map);
-*/
-/*
-// Get data from cities.js
-let cityData = cities;
+// Initialize the flag for "Historic" or "Forecast"
+var historicFlag = 0;
+var forecastFlag = 0;
 
-// Loop through the cities array and create one marker for each city.
-cityData.forEach(function(city) {
-console.log(city);
-L.circleMarker(city.location, {
-    radius : city.population/100000,
-    color : "orange",
-    fillColor : "yellow"
-}).bindPopup("<h2>" + city.city + ", " + city.state + "</h2> <hr> <h3> Population: " + city.population.toLocaleString() + "</h3>").addTo(map);
-});
+// Declaire the time order
+var historic_time_ascending = historicTimes;
+var historic_time_descending = historicTimes.reverse();
+var forecast_time_ascending = forecastTimes;
+var forecast_time_descending = forecastTimes.reverse();
 
-let myLine = [
-    [33.9416, -118.4085],
-    [37.6213, -122.3790],
-    [40.7899, -111.9791],
-    [47.4502, -122.3088]
-]
-L.polyline(myLine, {
-    color : "red"
-}).addTo(map);
+// Initialize the start and end date
+const start_date = new Date("2000-01-01T00:00:00");
+const end_date = new Date("2021-04-01T00:00:00");
+var region = "C01";
 
-// Add GeoJSON data.
-let sanFranAirport =
-{"type":"FeatureCollection","features":[{
-    "type":"Feature",
-    "properties":{
-        "id":"3469",
-        "name":"San Francisco International Airport",
-        "city":"San Francisco",
-        "country":"United States",
-        "faa":"SFO",
-        "icao":"KSFO",
-        "alt":"13",
-        "tz-offset":"-8",
-        "dst":"A",
-        "tz":"America/Los_Angeles"},
-        "geometry":{
-            "type":"Point",
-            "coordinates":[-122.375,37.61899948120117]}}
-]};
-*/
-/*
-// Grabbing our GeoJSON data.
-L.geoJSON(sanFranAirport, {
-    // We turn each feature into a marker on the map.
-    pointToLayer: function(feature, latlng){
-        console.log(feature);
-        console.log(latlng);
-        return L.marker(latlng).bindPopup("<h2>" + feature.properties.name + "</h2>" + "<hr>" + "<h3>" + feature.properties.city + ", " + feature.properties.country + "</h3>");
-    }
-}).addTo(map);
-*/
-// Accessing the air port GeoJSON URL
 let torontoHoods = "https://raw.githubusercontent.com/Johnnywang1899/Mapping_Earthquakes/Mapping_GeoJSON_Polygons/torontoNeighborhoods.json";
 
 function getAreaColor(x){
@@ -352,12 +300,46 @@ function typeOptionChange(selected_type){
     dropDownTime = d3.select("#dropDownListTime");
     dropDownTime.html("");
     if (selected_type === 'Historic'){
-        historicTimes.reverse().forEach((historicTime) => {
+        window.historicFlag = 1;
+        window.forecastFlag = 0;
+        window.historic_time_descending.forEach((historicTime) => {
             dropDownTime.append("option").text(historicTime.Date).property("value", historicTime.Date);
         })
     }
     else if (selected_type === "Forecast"){
-        forecastTimes.forEach((forecastTime) => {
+        window.historicFlag = 0;
+        window.forecastFlag = 1;
+        window.forecast_time_ascending.forEach((forecastTime) => {
+            dropDownTime.append("option").text(forecastTime.Date).property("value", forecastTime.Date);
+        })
+    }
+}
+
+function typeOptionChange_diagram(selected_type){
+    map.closePopup()
+
+    dropDownTime = d3.select("#dropDownListTime_start");
+    dropDownTime.html("");
+    if (selected_type === 'Historic'){
+        window.historic_time_ascending.forEach((historicTime) => {
+            dropDownTime.append("option").text(historicTime.Date).property("value", historicTime.Date);
+        })
+    }
+    else if (selected_type === "Forecast"){
+        window.forecast_time_ascending.forEach((forecastTime) => {
+            dropDownTime.append("option").text(forecastTime.Date).property("value", forecastTime.Date);
+        })
+    }
+
+    dropDownTime = d3.select("#dropDownListTime_end");
+    dropDownTime.html("");
+    if (selected_type === 'Historic'){
+        window.historic_time_descending.forEach((historicTime) => {
+            dropDownTime.append("option").text(historicTime.Date).property("value", historicTime.Date);
+        })
+    }
+    else if (selected_type === "Forecast"){
+        window.forecast_time_descending.forEach((forecastTime) => {
             dropDownTime.append("option").text(forecastTime.Date).property("value", forecastTime.Date);
         })
     }
@@ -367,32 +349,136 @@ function timeOptionChange(selected_date){
     map.closePopup()
     var date_condition = selected_date;
 
-    d3.json(torontoHoods).then(function(data){
+    if (window.historicFlag === 1){
+        d3.json(torontoHoods).then(function(data){
 
-        L.geoJSON(data, {
-            style : function(feature){
-                return {
-                fillColor: getAreaColor(feature.properties.AREA_S_CD),
-                weight: 1,
-                opacity: 0,
-                color: getAreaColor(feature.properties.AREA_S_CD),
-                dashArray: '3',
-                fillOpacity: 0
-              }
-            },
-            onEachFeature: function(feature, layer){
-                const area_code = getAreaName(feature.properties.AREA_S_CD);
-                const area_info = getPriceInfo_withdate(getAreaName(feature.properties.AREA_S_CD), date_condition);
-                const html_content = '<b>Region: ' + area_code + "</b><br>Month: " + area_info.date + "<br>Average Price: " + area_info.avg_price +
-                "<br>Total Units Sold: " + area_info.total_num + "<br>New Units (Toronto): " + area_info.new_unit;
-                layer.bindPopup(html_content),
-                layer.on({
-                    mouseover: (event) => (event.target.setStyle({fillOpacity: 1})),
-                    mouseout: (event) => (event.target.setStyle({fillOpacity: 0}))
-                })
+            L.geoJSON(data, {
+                style : function(feature){
+                    return {
+                    fillColor: getAreaColor(feature.properties.AREA_S_CD),
+                    weight: 1,
+                    opacity: 0,
+                    color: getAreaColor(feature.properties.AREA_S_CD),
+                    dashArray: '3',
+                    fillOpacity: 0
+                  }
+                },
+                onEachFeature: function(feature, layer){
+                    const area_code = getAreaName(feature.properties.AREA_S_CD);
+                    const area_info = getPriceInfo_withdate(getAreaName(feature.properties.AREA_S_CD), date_condition);
+                    const html_content = '<b>Region: ' + area_code + "</b><br>Date: " + area_info.date + "<br>Average Price: " + area_info.avg_price +
+                    "<br>Total Units Sold: " + area_info.total_num + "<br>New Units (Toronto): " + area_info.new_unit;
+                    layer.bindPopup(html_content),
+                    layer.on({
+                        mouseover: (event) => (event.target.setStyle({fillOpacity: 1})),
+                        mouseout: (event) => (event.target.setStyle({fillOpacity: 0}))
+                    })
+                }
+            }).addTo(map);
+        });
+    }
+
+    else if (window.forecastFlag === 1){
+        d3.json(torontoHoods).then(function(data){
+
+            L.geoJSON(data, {
+                style : function(feature){
+                    return {
+                    fillColor: getAreaColor(feature.properties.AREA_S_CD),
+                    weight: 1,
+                    opacity: 0,
+                    color: getAreaColor(feature.properties.AREA_S_CD),
+                    dashArray: '3',
+                    fillOpacity: 0
+                  }
+                },
+                onEachFeature: function(feature, layer){
+                    const area_code = getAreaName(feature.properties.AREA_S_CD);
+                    const area_info = getPriceInfo_withdate(getAreaName(feature.properties.AREA_S_CD), date_condition);
+                    const html_content = '<b>Region: ' + area_code + "</b><br>Date: " + area_info.date + "<br>Forecast Price: " + area_info.avg_price;
+                    layer.bindPopup(html_content),
+                    layer.on({
+                        mouseover: (event) => (event.target.setStyle({fillOpacity: 1})),
+                        mouseout: (event) => (event.target.setStyle({fillOpacity: 0}))
+                    })
+                }
+            }).addTo(map);
+        });
+    }
+}
+
+function timeOptionChange_diagram_start(selected_date_start){
+    window.start_date = new Date(selected_date_start + "T00:00:00");
+    console.log(window.start_date);
+}
+
+function timeOptionChange_diagram_end(selected_date_end){
+    window.end_date = new Date(selected_date_end + "T00:00:00");
+    console.log(window.end_date);
+}
+
+function typeOptionChange_region(selected_region){
+    window.region = selected_region;
+    console.log(window.region);
+    console.log(window.start_date);
+    console.log(window.end_date);
+}
+
+function buttonClicked(start_date_local, end_date_local){
+    if (end_date > start_date){
+        var x_date = [];
+        var y_price = [];
+
+        var start_time_local = window.start_date;
+        var end_time_local = window.end_date;
+
+        var year_start_local = start_time_local.getFullYear();
+        var year_end_local = end_time_local.getFullYear();
+        var month_start_local = start_time_local.getMonth() + 1; // In JS the month starts from 0
+        var month_end_local = end_time_local.getMonth() + 1;
+
+        if (month_end_local >= month_start_local){
+            var year_diff = year_end_local - year_start_local;
+            var month_diff = year_diff * 12;
+            var total_month_diff = month_diff + month_end_local - month_start_local;
+        }
+        else{
+            var year_diff = year_end_local - year_start_local - 1;
+            var month_diff = year_diff * 12;
+            total_month_diff = month_diff + 12 - month_start_local + month_end_local;
+        }
+        console.log(total_month_diff);
+
+        for (i = 0; i <= total_month_diff; i++){
+            if (i > 0){
+                start_time_local.setMonth(start_time_local.getMonth() + 1);
             }
-        }).addTo(map);
-    });
+            if (start_time_local.getMonth() + 1 > 9) {
+                var month_temp = (start_time_local.getMonth() + 1).toString();
+            }
+            else {
+                var month_temp = "0" + (start_time_local.getMonth() + 1).toString();
+            }
+            var year_temp = start_time_local.getFullYear().toString();
+            var date_temp = year_temp + "-" + month_temp + "-01";
+            x_date.push(date_temp);
+            y_value = getPriceInfo_withdate(window.region, date_temp);
+            y_price.push(y_value.avg_price);
+        }
+
+        LineChart = {
+            x: x_date,
+            y: y_price,
+            type: "line"
+        }
+        Plotly.newPlot("Data_Plot", [LineChart]);
+    }
+
+    else{
+        alert("Warning: Please select correct start/end date");
+    }
+    console.log(start_date);
+    console.log(end_date);
 }
 
 //Grabbing our GeoJSON data.
@@ -424,6 +510,14 @@ d3.json(torontoHoods).then(function(data){
         }
     }).addTo(map);
 });
+
+// Plot the diagram on the web
+LineChart = {
+    x: [1, 2, 3, 4],
+    y: [5, 6, 7, 8],
+    type: "line"
+}
+Plotly.newPlot("Data_Plot", [LineChart]);
 
 // We create the light view tile layer that will be an option for our map.
 var light = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {

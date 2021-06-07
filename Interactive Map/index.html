@@ -11,6 +11,7 @@
         crossorigin="" />
     <!-- d3 JavaScript -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="static/css/bootstrap.css">
     <!-- Our CSS -->
@@ -43,7 +44,7 @@
                         <option value="" disabled selected hidden>Please select a type</option>
                         <option value="Historic">Historic</option>
                         <option value="Forecast">Forecast</option>
-                    </select>
+                    </select><br>
 
                     <label>Select Time</label>
                     <select class="form-control" id="dropDownListTime" onchange="timeOptionChange(this.value)">
@@ -61,21 +62,78 @@
             <div class="page-header">
                 <h4> Section 2: Graphs</h4>
             </div>
+            <div class="col-lg-4">
+                <div class="panel panel-primary map-panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Select Input for Diagram Generation</h3>
+                    </div>
+                    <div class="panel-body">
+                        <label>Select Data Type</label>
+                        <select class="form-control" id="dropDownListType_diagram" onchange="typeOptionChange_diagram(this.value)">
+                            <option value="" disabled selected hidden>Please select a type</option>
+                            <option value="Historic">Historic</option>
+                            <option value="Forecast">Forecast</option>
+                        </select><br>
+    
+                        <label>Select Time Range</label>
+                        <h5>Start Date:</h5>
+                        <select class="form-control" id="dropDownListTime_start" onchange="timeOptionChange_diagram_start(this.value)">
+                            <option value="" disabled selected hidden>Please select the start date</option>
+                        </select>
+                        <h5>End Date:</h5>
+                        <select class="form-control" id="dropDownListTime_end" onchange="timeOptionChange_diagram_end(this.value)">
+                            <option value="" disabled selected hidden>Please select the end date</option>
+                        </select><br>
 
-
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="page-header">
-                <h4> Section 3: Machine Learning Models</h4>
+                        <label>Select Region</label>
+                        <select class="form-control" id="dropDownListType_region" onchange="typeOptionChange_region(this.value)">
+                            <option value="" disabled selected hidden>Please select a region</option>
+                            <option value="C01">C01</option>
+                            <option value="C02">C02</option>
+                            <option value="C03">C03</option>
+                            <option value="C04">C04</option>
+                            <option value="C06">C06</option>
+                            <option value="C07">C07</option>
+                            <option value="C08">C08</option>
+                            <option value="C09">C09</option>
+                            <option value="C10">C10</option>
+                            <option value="C11">C11</option>
+                            <option value="C12">C12</option>
+                            <option value="C13">C13</option>
+                            <option value="C14">C14</option>
+                            <option value="C15">C15</option>
+                            <option value="E01">E01</option>
+                            <option value="E02">E02</option>
+                            <option value="E03">E03</option>
+                            <option value="E04">E04</option>
+                            <option value="E05">E05</option>
+                            <option value="E06">E06</option>
+                            <option value="E07">E07</option>
+                            <option value="E08">E08</option>
+                            <option value="E09">E09</option>
+                            <option value="E10">E10</option>
+                            <option value="E11">E11</option>
+                            <option value="W01">W01</option>
+                            <option value="W02">W02</option>
+                            <option value="W03">W03</option>
+                            <option value="W04">W04</option>
+                            <option value="W05">W05</option>
+                            <option value="W06">W06</option>
+                            <option value="W07">W07</option>
+                            <option value="W08">W08</option>
+                            <option value="W09">W09</option>
+                            <option value="W10">W10</option>
+                        </select><br>
+                        <button type="confirmButton" onclick="buttonClicked()">Confirm</button>
+                    </div>
+                </div>
             </div>
-
-
+            <div class="col-lg-8">
+                <div id="Data_Plot"></div>
+            </div>
         </div>
     </div>
+
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
@@ -84,10 +142,10 @@
     <script type="text/javascript" src="static/js/config.js"></script>
 
     <!-- Our JavaScript -->
-    <script type="text/javascript" src="static/js/logic.js"></script>
-    <script type="text/javascript" src="static/js/sample.js"></script>
+    <script type="text/javascript" src="static/js/Historic_Forecast_Data.js"></script>
     <script type="text/javascript" src="static/js/Historic_Time.js"></script>
     <script type="text/javascript" src="static/js/Forecast_Time.js"></script>
+    <script type="text/javascript" src="static/js/logic.js"></script>
 
     <script></script>
 </body>
