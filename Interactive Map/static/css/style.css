@@ -12,10 +12,22 @@ html, body {
   height: 600px; 
 }
 
+.diagram-panel {
+  height: 500px; 
+}
+
 #mapid {
   position: relative;
   border: 1px solid rgb(37, 37, 37);
   border-radius: 8px;
+  height: 600px; 
+  width: 100%;  
+}
+
+#Data_Plot {
+  position: relative;
+  border: 1px solid rgb(37, 37, 37);
+  border-radius: 12px;
   height: 600px; 
   width: 100%;  
 }
