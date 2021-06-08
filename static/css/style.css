@@ -2,21 +2,32 @@
 
 html, body {
   height: 100%;
-  margin-top: 20px;
-  background-color: rgb(226, 235, 247);
-  margin-left:4%; 
-  margin-right:4%;
-  margin-bottom: 40px;
+  margin-top: 100px;
+  background-color: rgb(212, 231, 255);
+  margin-left:5%; 
+  margin-right:5%
 }
 
 .map-panel {
   height: 600px; 
 }
 
+.diagram-panel {
+  height: 500px; 
+}
+
 #mapid {
   position: relative;
   border: 1px solid rgb(37, 37, 37);
   border-radius: 8px;
+  height: 600px; 
+  width: 100%;  
+}
+
+#Data_Plot {
+  position: relative;
+  border: 1px solid rgb(37, 37, 37);
+  border-radius: 12px;
   height: 600px; 
   width: 100%;  
 }

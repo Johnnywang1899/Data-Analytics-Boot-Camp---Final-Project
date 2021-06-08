@@ -7,8 +7,25 @@ var initial_date = '2021-04-01';
 // Initialize the flag for "Historic" or "Forecast"
 var historicFlag = 0;
 var forecastFlag = 0;
-var startTimeSelection = 0;
-var endTimeSelection = 0;
+
+// Declaire the time order
+var historic_time_ascending = JSON.parse(JSON.stringify(historicTimes));
+var historic_time_descending = historicTimes.reverse();
+
+var forecast_time_ascending = JSON.parse(JSON.stringify(forecastTimes));
+var forecast_time_descending = forecastTimes.reverse();
+
+// Initialize the start and end date
+var start_date_1;
+var end_date_1;
+var start_date_2;
+var end_date_2;
+var region_1 = "C01";
+var region_2 = "C01";
+
+// Initialize the flag for lines
+var line_1_flag = 0;
+var line_2_flag = 0;
 
 let torontoHoods = "https://raw.githubusercontent.com/Johnnywang1899/Mapping_Earthquakes/Mapping_GeoJSON_Polygons/torontoNeighborhoods.json";
 
@@ -256,7 +273,6 @@ function getPriceInfo(region) {
             avg_price: area.Avg_Price,
             new_unit: area.New_Units_Number_construction_complete
         };
-        //console.log(my_selected_time);
         return retval;
     }
 }
@@ -270,7 +286,6 @@ function getPriceInfo_withdate(region, date_select) {
             avg_price: area.Avg_Price,
             new_unit: area.New_Units_Number_construction_complete
         };
-        //console.log(my_selected_time);
         return retval;
     }
     else {
@@ -280,7 +295,6 @@ function getPriceInfo_withdate(region, date_select) {
             avg_price: 'N/A',
             new_unit: 'N/A'
         };
-        //console.log(my_selected_time);
         return retval;
     }
 }
@@ -293,35 +307,74 @@ function typeOptionChange(selected_type){
     if (selected_type === 'Historic'){
         window.historicFlag = 1;
         window.forecastFlag = 0;
-        historicTimes.reverse().forEach((historicTime) => {
+        window.historic_time_descending.forEach((historicTime) => {
             dropDownTime.append("option").text(historicTime.Date).property("value", historicTime.Date);
         })
     }
     else if (selected_type === "Forecast"){
         window.historicFlag = 0;
         window.forecastFlag = 1;
-        forecastTimes.forEach((forecastTime) => {
+        window.forecast_time_ascending.forEach((forecastTime) => {
             dropDownTime.append("option").text(forecastTime.Date).property("value", forecastTime.Date);
         })
     }
 }
 
-function typeOptionChange_diagram(selected_type){
+function typeOptionChange_diagram_1(selected_type){
     map.closePopup()
 
-    dropDownTime = d3.select("#dropDownListTime_start");
+    dropDownTime = d3.select("#dropDownListTime_start_1");
     dropDownTime.html("");
     if (selected_type === 'Historic'){
-        window.historicFlag = 1;
-        window.forecastFlag = 0;
-        historicTimes.reverse().forEach((historicTime) => {
+        window.historic_time_ascending.forEach((historicTime) => {
             dropDownTime.append("option").text(historicTime.Date).property("value", historicTime.Date);
         })
     }
     else if (selected_type === "Forecast"){
-        window.historicFlag = 0;
-        window.forecastFlag = 1;
-        forecastTimes.forEach((forecastTime) => {
+        window.forecast_time_ascending.forEach((forecastTime) => {
+            dropDownTime.append("option").text(forecastTime.Date).property("value", forecastTime.Date);
+        })
+    }
+
+    dropDownTime = d3.select("#dropDownListTime_end_1");
+    dropDownTime.html("");
+    if (selected_type === 'Historic'){
+        window.historic_time_descending.forEach((historicTime) => {
+            dropDownTime.append("option").text(historicTime.Date).property("value", historicTime.Date);
+        })
+    }
+    else if (selected_type === "Forecast"){
+        window.forecast_time_descending.forEach((forecastTime) => {
+            dropDownTime.append("option").text(forecastTime.Date).property("value", forecastTime.Date);
+        })
+    }
+}
+
+function typeOptionChange_diagram_2(selected_type){
+    map.closePopup()
+
+    dropDownTime = d3.select("#dropDownListTime_start_2");
+    dropDownTime.html("");
+    if (selected_type === 'Historic'){
+        window.historic_time_ascending.forEach((historicTime) => {
+            dropDownTime.append("option").text(historicTime.Date).property("value", historicTime.Date);
+        })
+    }
+    else if (selected_type === "Forecast"){
+        window.forecast_time_ascending.forEach((forecastTime) => {
+            dropDownTime.append("option").text(forecastTime.Date).property("value", forecastTime.Date);
+        })
+    }
+
+    dropDownTime = d3.select("#dropDownListTime_end_2");
+    dropDownTime.html("");
+    if (selected_type === 'Historic'){
+        window.historic_time_descending.forEach((historicTime) => {
+            dropDownTime.append("option").text(historicTime.Date).property("value", historicTime.Date);
+        })
+    }
+    else if (selected_type === "Forecast"){
+        window.forecast_time_descending.forEach((forecastTime) => {
             dropDownTime.append("option").text(forecastTime.Date).property("value", forecastTime.Date);
         })
     }
@@ -387,8 +440,238 @@ function timeOptionChange(selected_date){
             }).addTo(map);
         });
     }
+}
 
+function timeOptionChange_diagram_start_1(selected_date_start){
+    window.start_date_1 = new Date(selected_date_start + "T00:00:00");
+}
+
+function timeOptionChange_diagram_end_1(selected_date_end){
+    window.end_date_1 = new Date(selected_date_end + "T00:00:00");
+}
+
+function typeOptionChange_region_1(selected_region){
+    window.region_1 = selected_region;
+}
+
+function timeOptionChange_diagram_start_2(selected_date_start){
+    window.start_date_2 = new Date(selected_date_start + "T00:00:00");
+}
+
+function timeOptionChange_diagram_end_2(selected_date_end){
+    window.end_date_2 = new Date(selected_date_end + "T00:00:00");
+}
+
+function typeOptionChange_region_2(selected_region){
+    window.region_2 = selected_region;
+}
+
+function buttonClicked(){
+    window.line_1_flag = 0;
+    window.line_2_flag = 0;
+    if ((window.end_date_1 > window.start_date_1) || (window.end_date_2 > window.start_date_2)){
+        if (window.end_date_1 > window.start_date_1){
+            window.line_1_flag = 1;
+            var x_date_1 = [];
+            var y_price_1 = [];
     
+            let start_time_local = new Date(start_date_1);
+            let end_time_local = new Date(end_date_1);
+    
+            var year_start_local = start_time_local.getFullYear();
+            var year_end_local = end_time_local.getFullYear();
+            var month_start_local = start_time_local.getMonth() + 1; // In JS the month starts from 0
+            var month_end_local = end_time_local.getMonth() + 1;
+    
+            if (month_end_local >= month_start_local){
+                var year_diff = year_end_local - year_start_local;
+                var month_diff = year_diff * 12;
+                var total_month_diff = month_diff + month_end_local - month_start_local;
+            }
+            else{
+                var year_diff = year_end_local - year_start_local - 1;
+                var month_diff = year_diff * 12;
+                total_month_diff = month_diff + 12 - month_start_local + month_end_local;
+            }
+    
+            for (i = 0; i <= total_month_diff; i++){
+                if (i > 0){
+                    start_time_local.setMonth(start_time_local.getMonth() + 1);
+                }
+                if (start_time_local.getMonth() + 1 > 9) {
+                    var month_temp = (start_time_local.getMonth() + 1).toString();
+                }
+                else {
+                    var month_temp = "0" + (start_time_local.getMonth() + 1).toString();
+                }
+                var year_temp = start_time_local.getFullYear().toString();
+                var date_temp = year_temp + "-" + month_temp + "-01";
+                x_date_1.push(date_temp);
+                y_value = getPriceInfo_withdate(window.region_1, date_temp);
+                y_price_1.push(y_value.avg_price);
+            }
+        }
+
+        if (window.end_date_2 > window.start_date_2){
+            window.line_2_flag = 1;
+            var x_date_2 = [];
+            var y_price_2 = [];
+    
+            let start_time_local = new Date(start_date_2);
+            let end_time_local = new Date(end_date_2);
+    
+            var year_start_local = start_time_local.getFullYear();
+            var year_end_local = end_time_local.getFullYear();
+            var month_start_local = start_time_local.getMonth() + 1; // In JS the month starts from 0
+            var month_end_local = end_time_local.getMonth() + 1;
+    
+            if (month_end_local >= month_start_local){
+                var year_diff = year_end_local - year_start_local;
+                var month_diff = year_diff * 12;
+                var total_month_diff = month_diff + month_end_local - month_start_local;
+            }
+            else{
+                var year_diff = year_end_local - year_start_local - 1;
+                var month_diff = year_diff * 12;
+                total_month_diff = month_diff + 12 - month_start_local + month_end_local;
+            }
+    
+            for (i = 0; i <= total_month_diff; i++){
+                if (i > 0){
+                    start_time_local.setMonth(start_time_local.getMonth() + 1);
+                }
+                if (start_time_local.getMonth() + 1 > 9) {
+                    var month_temp = (start_time_local.getMonth() + 1).toString();
+                }
+                else {
+                    var month_temp = "0" + (start_time_local.getMonth() + 1).toString();
+                }
+                var year_temp = start_time_local.getFullYear().toString();
+                var date_temp = year_temp + "-" + month_temp + "-01";
+                x_date_2.push(date_temp);
+                y_value = getPriceInfo_withdate(window.region_2, date_temp);
+                y_price_2.push(y_value.avg_price);
+            }
+        }
+
+        var layout = {
+            title:{
+                text: "Condo Monthly Sale Price by Region",
+                font:{
+                    family:'Arial',
+                    size:18,
+                    color:'black'
+                },
+                x : 0.5,
+            },
+            xaxis:{
+                title:{
+                    text: 'Date',
+                    font:{
+                        family: 'Arial',
+                        size:12,
+                        color:'black'
+                    }
+                },
+            },
+            yaxis:{
+                title:{
+                    text: 'Condo Avg. Sale Price',
+                    font:{
+                        family: 'Arial',
+                        size:12,
+                        color:'black'
+                    }
+                }
+            },
+            updatemenus: [{
+                x: 0.5,
+                y: 0,
+                yanchor: "top",
+                xanchor: "center",
+                showactive: false,
+                direction: "left",
+                type: "buttons",
+                pad: {"t": 87, "r": 10},
+                buttons: [{
+                  method: "animate",
+                  args: [null, {
+                    fromcurrent: true,
+                    transition: {
+                      duration: 0,
+                    },
+                    frame: {
+                      duration: 40,
+                      redraw: false
+                    }
+                  }],
+                  label: "Play"
+                }, {
+                  method: "animate",
+                  args: [
+                    [null],
+                    {
+                      mode: "immediate",
+                      transition: {
+                        duration: 0
+                      },
+                      frame: {
+                        duration: 0,
+                        redraw: false
+                      }
+                    }
+                  ],
+                  label: "Pause"
+                }]
+              }]
+        };
+        
+        if (window.line_1_flag){
+            if (window.line_2_flag){
+                var trace_1 = {
+                    x : x_date_1,
+                    y : y_price_1,
+                    type : 'scatter',
+                    name : 'Input 1'
+                };
+                var trace_2 = {
+                    x : x_date_2,
+                    y : y_price_2,
+                    type : 'scatter',
+                    name : 'Input 2'
+                }
+                Plotly.newPlot("Data_Plot", [trace_1, trace_2], layout).then(function() {
+                    Plotly.addFrames('Data_Plot');
+                  });
+            }
+            else{
+                var trace_1 = {
+                    x : x_date_1,
+                    y : y_price_1,
+                    type : 'scatter',
+                    name : 'Input 1'
+                }
+                Plotly.newPlot("Data_Plot", [trace_1], layout).then(function() {
+                    Plotly.addFrames('Data_Plot');
+                  });
+            }
+        }
+        else {
+            var trace_2 = {
+                x : x_date_2,
+                y : y_price_2,
+                type : 'scatter',
+                name : 'Input 2'
+            }
+            Plotly.newPlot("Data_Plot", [trace_2], layout).then(function() {
+                Plotly.addFrames('Data_Plot');
+              });
+        }
+    }
+
+    else{
+        alert("Warning: Please select correct start/end date");
+    }
 }
 
 //Grabbing our GeoJSON data.
@@ -420,6 +703,14 @@ d3.json(torontoHoods).then(function(data){
         }
     }).addTo(map);
 });
+
+// Plot the diagram on the web
+LineChart = {
+    x: [1, 2, 3, 4],
+    y: [5, 6, 7, 8],
+    type: "line"
+}
+Plotly.newPlot("Data_Plot", [LineChart]);
 
 // We create the light view tile layer that will be an option for our map.
 var light = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
