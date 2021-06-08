@@ -63,10 +63,10 @@
                     <a class="nav-link active" href="#Map" style="font-size: 15px;">Interactive Map</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#Dashboard" style="font-size: 15px;">Interactive Dashboard</a>
+                      <a class="nav-link" href="#Diagrams" style="font-size: 15px;">Interactive Diagrams</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="#Diagrams" style="font-size: 15px;">Interactive Diagrams</a>
+                    <a class="nav-link" href="#Dashboard" style="font-size: 15px;">Interactive Dashboard</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#Table" style="font-size: 15px;">Interactive Data Table</a>
@@ -135,131 +135,7 @@
       </div>
     </div>
     <hr>
-<!--Dashboard Title -->
-    <div class="container" id="Dashboard">
-      <div class = "col-auto">
-          <h2>Interactive Dashboard</h2>
-      </div>
-    </div>
 
-<!--Dashboard Section-->
-<div class="container" id="Dashboard">
-  <div class="row">
-    <div class="col-sm-12">
-        <div class="page-header">
-            <h4> Section 1: Forecast Data</h4>
-        </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-3">
-      <div class="panel panel-primary" style="height: 200px">
-        <div class="panel-heading">
-            <h3 class="panel-title">Dashboard Filter</h3>
-        </div>
-        <div class="panel-body">
-          <ul class="list-group">
-            <li class="list-group-item">
-                <label for="Date">Enter a Date
-                </label>
-                <br><input type="text" placeholder="2001-01-01" id="foreDate"/>
-              </li>
-
-              <li class="list-group-item">
-                <label for="Area_Code">Enter an Area_code
-                </label>
-                <br><input type="text" placeholder="E01" id="foreArea_Code"/>
-              </li>
-            
-            </ul>
-        </div>
-    </div>
-    </div>
-    <div class="col-3">
-      <div class="card border" style="height: 200px">
-        <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average Price</div>
-        <div class="card-body text-dark">
-          <h5 id="avgpricefore">average price here</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col-3">
-      <div class="card border" style="height: 200px">
-        <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average Price <br>Increase Rate</div>
-        <div class="card-body text-dark"> 
-          <h5 id="increaseratefore">increase rate here</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col-3">
-      <div class="card border" style="height: 200px">
-        <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average New Listing</div>
-        <div class="card-body text-dark">
-          <h5 id="newlistingfore">new listing here</h5>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-12">
-        <div class="page-header">
-            <h4> Section 2: Historic Data</h4>
-        </div>
-    </div>
-  </div>
-  <div class = "row">
-    <div class="row">
-      <div class="col-3">
-        <div class="panel panel-primary" style="height: 200px">
-          <div class="panel-heading">
-              <h3 class="panel-title">Dashboard Filter</h3>
-          </div>
-          <div class="panel-body">
-            <ul class="list-group">
-              <li class="list-group-item">
-                  <label for="Date">Enter a Date
-                  </label>
-                  <br><input type="text" placeholder="2001-01-01" id="hisDate"/>
-                </li>
-  
-                <li class="list-group-item">
-                  <label for="Area_Code">Enter an Area_code
-                  </label>
-                  <br><input type="text" placeholder="E01" id="hisArea_Code"/>
-                </li>
-              </ul>
-          </div>     
-      </div>
-      </div>
-      <div class="col-3">
-        <div class="card border" style="height: 200px">
-          <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average Price</div>
-          <div class="card-body text-dark">
-            <h5 id="avgpricehis">average price here</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-3">
-        <div class="card border" style="height: 200px">
-          <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average Price <br>Increase Rate</div>
-          <div class="card-body text-dark"> 
-            <h5 id="increaseratehis">increase rate here</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-3">
-        <div class="card border" style="height: 200px">
-          <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average New Listing</div>
-          <div class="card-body text-dark">
-            <h5 id="newlistinghis">new listing here</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-<hr>
 <!--Diagrams Title -->
 <div class="container" id="Diagrams">
   <div class = "col-auto">
@@ -405,10 +281,122 @@
     </div>
     </div>
 </div>
-
-    </div>
     <hr>
 
+    <!--Dashboard Title -->
+    <div class="container" id="Dashboard">
+      <div class = "col-auto">
+          <h2>Interactive Dashboard</h2>
+      </div>
+    </div>
+
+<!--Dashboard Section-->
+<div class="container" id="Dashboard">
+  <div class="row">
+    <div class="col-sm-12">
+        <div class="page-header">
+            <h4> Section 1: Forecast Data</h4>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <div class="panel panel-primary" style="height: 200px">
+        <div class="panel-heading">
+            <h3 class="panel-title">Dashboard Filter</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="list-group">
+            <li class="list-group-item">
+                <label for="Date">Enter a Date
+                </label>
+                <br><input type="text" placeholder="2001-01-01" id="foreDate" onchange="fore_date_input()"/>
+              </li>
+
+              <li class="list-group-item">
+                <label for="Area_Code">Enter an Area_code
+                </label>
+                <br><input type="text" placeholder="E01" id="foreArea_Code" onchange="fore_area_code_input()"/>
+              </li>
+            </ul>
+        </div>     
+    </div>
+    </div>
+    <div class="col-4">
+      <div class="card border" style="height: 200px">
+        <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average Price</div>
+        <div class="card-body text-primary
+        ">
+          <h5 id="avgpricefore" style="font-size: 20px; font-weight: bold; text-align: center; vertical-align: middle;">Average price will be displayed here</h5>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-4">
+      <div class="card border" style="height: 200px">
+        <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average New Listing</div>
+        <div class="card-body text-primary
+        " >
+          <h5 id="newlistingfore" style="font-size: 20px; font-weight: bold; text-align: center; vertical-align: middle;">Average New Listing will be displayed here</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+        <div class="page-header">
+            <h4> Section 2: Historic Data</h4>
+        </div>
+    </div>
+  </div>
+  
+    <div class="row">
+      <div class="col-4">
+        <div class="panel panel-primary" style="height: 200px">
+          <div class="panel-heading">
+              <h3 class="panel-title">Dashboard Filter</h3>
+          </div>
+          <div class="panel-body">
+            <ul class="list-group">
+              <li class="list-group-item">
+                  <label for="Date">Enter a Date
+                  </label>
+                  <br><input type="text" placeholder="2001-01-01" id="hisDate" onchange="his_date_input()"/>
+                </li>
+  
+                <li class="list-group-item">
+                  <label for="Area_Code">Enter an Area_code
+                  </label>
+                  <br><input type="text" placeholder="E01" id="hisArea_Code" onchange="his_area_code_input()"/>
+                </li>
+              </ul>
+          </div>     
+      </div>
+      </div>
+      <div class="col-4">
+        <div class="card border" style="height: 200px">
+          <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average Price</div>
+          <div class="card-body text-primary
+          ">
+            <h5 id="avgpricehis" style="font-size: 20px; font-weight: bold; text-align: center; vertical-align: middle;">Average price will be displayed here</h5>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-4">
+        <div class="card border" style="height: 200px">
+          <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average New Listing</div>
+          <div class="card-body text-primary
+          ">
+            <h5 id="newlistinghis" style="font-size: 20px; font-weight: bold; text-align: center; vertical-align: middle;">Average New Listing will be displayed here</h5>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<hr>
     <!--Interactive Data Table Section -->
     <div class="container" id="Table">
     <div class = "col-auto">
@@ -514,6 +502,7 @@
     <script type="text/javascript" src="static/js/Historic_Time.js"></script>
     <script type="text/javascript" src="static/js/Forecast_Time.js"></script>
     <script type="text/javascript" src="static/js/logic.js"></script>
+    <script type="text/javascript" src="static/js/data_new.js"></script>
     <script type="text/javascript" src="static/js/dashboard.js"></script>
     <script src="static/js/data.js"></script>
     <script src="static/js/table_logic.js"></script> 
