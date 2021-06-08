@@ -26,7 +26,7 @@
 <body>
  <!-- Title Section -->    
   <div class="container">
-      <!-- Background image -->
+      <!-- Background image 
       <div id="Toronto_photo_slide" class="carousel slide" data-ride="carousel" data-interval="4000">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -39,6 +39,7 @@
         </div>
       </div>
       <hr>
+      //-->
       <!-- Title -->
       <div class = "row">
         <div class = "col-12">
@@ -109,24 +110,24 @@
     <div class="container" id="Map">
       <div class="row">
         <div class="col-lg-3">
-        <div class="panel panel-primary map-panel">
-          <div class="panel-heading">
-              <h3 class="panel-title">What Data Do You Need?</h3>
-          </div>
-          <div class="panel-body">
-              <label>Select Data Type</label>
-              <select class="form-control" id="dropDownListType" onchange="typeOptionChange(this.value)">
-                  <option value="" disabled selected hidden>Please select a type</option>
-                  <option value="Historic">Historic</option>
-                  <option value="Forecast">Forecast</option>
-              </select><br>
+          <div class="panel panel-primary map-panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">What Data Do You Need?</h3>
+            </div>
+            <div class="panel-body">
+                <label>Select Data Type</label>
+                <select class="form-control" id="dropDownListType" onchange="typeOptionChange(this.value)">
+                    <option value="" disabled selected hidden>Please select a type</option>
+                    <option value="Historic">Historic</option>
+                    <option value="Forecast">Forecast</option>
+                </select><br>
 
-              <label>Select Time</label>
-              <select class="form-control" id="dropDownListTime" onchange="timeOptionChange(this.value)">
-                  <option value="" disabled selected hidden>Please select a date</option>
-              </select>
-          </div>
-      </div>
+                <label>Select Time</label>
+                <select class="form-control" id="dropDownListTime" onchange="timeOptionChange(this.value)">
+                    <option value="" disabled selected hidden>Please select a date</option>
+                </select>
+            </div>
+        </div>
     </div>
         <div class="col-lg-9">
           <div id="mapid"></div>
@@ -157,11 +158,20 @@
             <h3 class="panel-title">Dashboard Filter</h3>
         </div>
         <div class="panel-body">
-            <label>Select Region</label><br>
-              <select></select><br>
+          <ul class="list-group">
+            <li class="list-group-item">
+                <label for="Date">Enter a Date
+                </label>
+                <br><input type="text" placeholder="2001-01-01" id="foreDate"/>
+              </li>
 
-            <label>Select Data</label><br>
-              <select></select>
+              <li class="list-group-item">
+                <label for="Area_Code">Enter an Area_code
+                </label>
+                <br><input type="text" placeholder="E01" id="foreArea_Code"/>
+              </li>
+            
+            </ul>
         </div>
     </div>
     </div>
@@ -169,7 +179,7 @@
       <div class="card border" style="height: 200px">
         <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average Price</div>
         <div class="card-body text-dark">
-          <h5 >average price here</h5>
+          <h5 id="avgpricefore">average price here</h5>
         </div>
       </div>
     </div>
@@ -177,7 +187,7 @@
       <div class="card border" style="height: 200px">
         <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average Price <br>Increase Rate</div>
         <div class="card-body text-dark"> 
-          <h5 >increase rate here</h5>
+          <h5 id="increaseratefore">increase rate here</h5>
         </div>
       </div>
     </div>
@@ -185,7 +195,7 @@
       <div class="card border" style="height: 200px">
         <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average New Listing</div>
         <div class="card-body text-dark">
-          <h5 >new listing here</h5>
+          <h5 id="newlistingfore">new listing here</h5>
         </div>
       </div>
     </div>
@@ -198,9 +208,59 @@
         </div>
     </div>
   </div>
-</div> 
+  <div class = "row">
+    <div class="row">
+      <div class="col-3">
+        <div class="panel panel-primary" style="height: 200px">
+          <div class="panel-heading">
+              <h3 class="panel-title">Dashboard Filter</h3>
+          </div>
+          <div class="panel-body">
+            <ul class="list-group">
+              <li class="list-group-item">
+                  <label for="Date">Enter a Date
+                  </label>
+                  <br><input type="text" placeholder="2001-01-01" id="hisDate"/>
+                </li>
+  
+                <li class="list-group-item">
+                  <label for="Area_Code">Enter an Area_code
+                  </label>
+                  <br><input type="text" placeholder="E01" id="hisArea_Code"/>
+                </li>
+              </ul>
+          </div>     
+      </div>
+      </div>
+      <div class="col-3">
+        <div class="card border" style="height: 200px">
+          <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average Price</div>
+          <div class="card-body text-dark">
+            <h5 id="avgpricehis">average price here</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="card border" style="height: 200px">
+          <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average Price <br>Increase Rate</div>
+          <div class="card-body text-dark"> 
+            <h5 id="increaseratehis">increase rate here</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="card border" style="height: 200px">
+          <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average New Listing</div>
+          <div class="card-body text-dark">
+            <h5 id="newlistinghis">new listing here</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <hr>
-<!--Dashboard Title -->
+<!--Diagrams Title -->
 <div class="container" id="Diagrams">
   <div class = "col-auto">
       <h2>Interactive Diagrams</h2>
@@ -441,9 +501,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script src="static/js/data.js"></script>
-    <script src="static/js/data_table.js"></script>   
-    <script src="static/js/data_Dashboard.js"></script>  
+   
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
@@ -452,11 +510,13 @@
     <script type="text/javascript" src="static/js/config.js"></script>
 
     <!-- Our JavaScript -->
-    <script type="text/javascript" src="static/js/logic.js"></script>
     <script type="text/javascript" src="static/js/Historic_Forecast_Data.js"></script>
     <script type="text/javascript" src="static/js/Historic_Time.js"></script>
     <script type="text/javascript" src="static/js/Forecast_Time.js"></script>
-
+    <script type="text/javascript" src="static/js/logic.js"></script>
+    <script type="text/javascript" src="static/js/dashboard.js"></script>
+    <script src="static/js/data.js"></script>
+    <script src="static/js/table_logic.js"></script> 
     <script></script>
 </body>
 

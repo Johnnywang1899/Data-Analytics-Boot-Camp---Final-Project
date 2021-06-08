@@ -1,4 +1,4 @@
-data = [{"Date":"2000-01-01","Area_Code":"E04","Total_Condo_Sold_Number":8,"Avg_Price":119767,"New_Units_Number_construction_complete":null},
+diagram_data = [{"Date":"2000-01-01","Area_Code":"E04","Total_Condo_Sold_Number":8,"Avg_Price":119767,"New_Units_Number_construction_complete":null},
 {"Date":"2000-01-01","Area_Code":"W09","Total_Condo_Sold_Number":14,"Avg_Price":127000,"New_Units_Number_construction_complete":null},
 {"Date":"2000-01-01","Area_Code":"W08","Total_Condo_Sold_Number":15,"Avg_Price":220260,"New_Units_Number_construction_complete":null},
 {"Date":"2000-01-01","Area_Code":"W07","Total_Condo_Sold_Number":2,"Avg_Price":181500,"New_Units_Number_construction_complete":null},

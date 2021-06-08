@@ -265,7 +265,7 @@ function getAreaName(x){
 };
 
 function getPriceInfo(region) {
-    const area = data.find(item => item.Area_Code === region);
+    const area = diagram_data.find(item => item.Area_Code === region);
     if (area) {
         const retval = {
             date: area.Date,
@@ -278,7 +278,7 @@ function getPriceInfo(region) {
 }
 
 function getPriceInfo_withdate(region, date_select) {
-    const area = data.find(item => item.Area_Code === region & item.Date === date_select);
+    const area = diagram_data.find(item => item.Area_Code === region & item.Date === date_select);
     if (area) {
         const retval = {
             date: area.Date,
@@ -553,78 +553,6 @@ function buttonClicked(){
                 y_price_2.push(y_value.avg_price);
             }
         }
-
-        var layout = {
-            title:{
-                text: "Condo Monthly Sale Price by Region",
-                font:{
-                    family:'Arial',
-                    size:18,
-                    color:'black'
-                },
-                x : 0.5,
-            },
-            xaxis:{
-                title:{
-                    text: 'Date',
-                    font:{
-                        family: 'Arial',
-                        size:12,
-                        color:'black'
-                    }
-                },
-            },
-            yaxis:{
-                title:{
-                    text: 'Condo Avg. Sale Price',
-                    font:{
-                        family: 'Arial',
-                        size:12,
-                        color:'black'
-                    }
-                }
-            },
-            updatemenus: [{
-                x: 0.5,
-                y: 0,
-                yanchor: "top",
-                xanchor: "center",
-                showactive: false,
-                direction: "left",
-                type: "buttons",
-                pad: {"t": 87, "r": 10},
-                buttons: [{
-                  method: "animate",
-                  args: [null, {
-                    fromcurrent: true,
-                    transition: {
-                      duration: 0,
-                    },
-                    frame: {
-                      duration: 40,
-                      redraw: false
-                    }
-                  }],
-                  label: "Play"
-                }, {
-                  method: "animate",
-                  args: [
-                    [null],
-                    {
-                      mode: "immediate",
-                      transition: {
-                        duration: 0
-                      },
-                      frame: {
-                        duration: 0,
-                        redraw: false
-                      }
-                    }
-                  ],
-                  label: "Pause"
-                }]
-              }]
-        };
         
         if (window.line_1_flag){
             if (window.line_2_flag){
@@ -640,9 +568,7 @@ function buttonClicked(){
                     type : 'scatter',
                     name : 'Input 2'
                 }
-                Plotly.newPlot("Data_Plot", [trace_1, trace_2], layout).then(function() {
-                    Plotly.addFrames('Data_Plot');
-                  });
+                Plotly.newPlot("Data_Plot", [trace_1, trace_2], layout);
             }
             else{
                 var trace_1 = {
@@ -651,9 +577,7 @@ function buttonClicked(){
                     type : 'scatter',
                     name : 'Input 1'
                 }
-                Plotly.newPlot("Data_Plot", [trace_1], layout).then(function() {
-                    Plotly.addFrames('Data_Plot');
-                  });
+                Plotly.newPlot("Data_Plot", [trace_1], layout);
             }
         }
         else {
@@ -663,9 +587,7 @@ function buttonClicked(){
                 type : 'scatter',
                 name : 'Input 2'
             }
-            Plotly.newPlot("Data_Plot", [trace_2], layout).then(function() {
-                Plotly.addFrames('Data_Plot');
-              });
+            Plotly.newPlot("Data_Plot", [trace_2], layout);
         }
     }
 
@@ -704,13 +626,74 @@ d3.json(torontoHoods).then(function(data){
     }).addTo(map);
 });
 
-// Plot the diagram on the web
-LineChart = {
-    x: [1, 2, 3, 4],
-    y: [5, 6, 7, 8],
-    type: "line"
+// initialize the trace for plotting
+var date_ini = [];
+var region_ini_1 = 'C01';
+var region_ini_2 = 'E06';
+var price_ini_1 = [];
+var price_ini_2 = [];
+var y_value_ini;
+window.historic_time_ascending.forEach((historicTime) => {
+    date_ini.push(historicTime.Date);
+})
+console.log(date_ini);
+
+date_ini.forEach((each_date_ini) => {
+    y_value_ini = getPriceInfo_withdate(region_ini_1, each_date_ini);
+    price_ini_1.push(y_value_ini.avg_price);
+})
+console.log(price_ini_1);
+
+date_ini.forEach((each_date_ini) => {
+    y_value_ini = getPriceInfo_withdate(region_ini_2, each_date_ini);
+    price_ini_2.push(y_value_ini.avg_price);
+})
+console.log(price_ini_2);
+
+var trace_1_ini = {
+    x : date_ini,
+    y : price_ini_1,
+    type : 'scatter',
+    name : 'Input 1'
+};
+var trace_2_ini = {
+    x : date_ini,
+    y : price_ini_2,
+    type : 'scatter',
+    name : 'Input 2'
 }
-Plotly.newPlot("Data_Plot", [LineChart]);
+var layout = {
+    title:{
+        text: "Condo Monthly Sale Price by Region",
+        font:{
+            family:'Arial',
+            size:18,
+            color:'black'
+        },
+        x : 0.5,
+    },
+    xaxis:{
+        title:{
+            text: 'Date',
+            font:{
+                family: 'Arial',
+                size:12,
+                color:'black'
+            }
+        },
+    },
+    yaxis:{
+        title:{
+            text: 'Condo Avg. Sale Price',
+            font:{
+                family: 'Arial',
+                size:12,
+                color:'black'
+            }
+        }
+    }
+};
+Plotly.newPlot("Data_Plot", [trace_1_ini, trace_2_ini], layout);
 
 // We create the light view tile layer that will be an option for our map.
 var light = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
