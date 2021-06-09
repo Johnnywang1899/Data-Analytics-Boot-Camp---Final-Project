@@ -89,13 +89,21 @@ function his_updatedashFilters() {
     if (fore_dash_flag === 2){
         fore_regionOptionChange_Dashboard();
         window.fore_dash_flag = 0;
-        document.getElementById('foreArea_Code').value = '';
-        document.getElementById('foreDate').value = ''
         console.log(fore_dash_flag);
     }
     else{
         return null;
     }
+  }
+
+  function clearfore(){
+    document.getElementById('foreArea_Code').value = '';
+    document.getElementById('foreDate').value = ''
+  }
+
+  function clearhis(){
+    document.getElementById('hisArea_Code').value = '';
+    document.getElementById('hisDate').value = ''
   }
 
 

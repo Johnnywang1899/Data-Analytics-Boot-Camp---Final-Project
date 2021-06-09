@@ -463,7 +463,7 @@
       <div class="col-9 table-responsive" style="height: 700px; overflow: auto; position: relative;">
         <table class="table table-bordered table-hover" style="width: 100%; text-align: center; vertical-align: top;" >
             <thead >
-              <tr class="table-light">
+              <tr class="table-light" style="font-size: 15px;">
                 <th style="position: sticky; top: 0;">Date (YYYY/MM/DD)</th>
                 <th style="position: sticky; top: 0;">Area Code</th>
                 <th style="position: sticky; top: 0;">Total Condo Sold Number</th>
@@ -477,7 +477,7 @@
                 <th style="position: sticky; top: 0;">Ontario International Immigrants</th>
                 <th style="position: sticky; top: 0;">Toronto Median Age</th>
                 <th style="position: sticky; top: 0;">U of T Total Enrollment</th>
-                <th style="position: sticky; top: 0;">TToronto Participation Rate</th>
+                <th style="position: sticky; top: 0;">Toronto Participation Rate</th>
                 <th style="position: sticky; top: 0;">Toronto Employment Rate</th>
                 <th style="position: sticky; top: 0;">Toronto Population</th> 
                 <th style="position: sticky; top: 0;">New Units Number (Planned)</th>
@@ -486,20 +486,57 @@
 
               </tr>
             </thead>
-            <tbody class = "table-light" style="text-align: center;"></tbody>
+            <tbody class = "table-light" style="text-align: center; font-size: 14px;"></tbody>
           </table>
       </div>
     </div><hr>
     </div>
     
 
-    <!-- Text Summary  Section -->
-    <div class="container" id="Summary">
-    <div class = "col-auto">
-      <h2>Text Summary</h2>
-    </div>
-    </div>
-    <hr>
+     <!-- Text Summary  Section-->
+     <div class="container" id="Summary">
+      <div class = "col-auto">
+        <h2>Text Summary</h2>
+      </div>
+      <hr>
+        <p style="font-size: 18px;">
+          This model is for condo price forecasting in the downtown Toronto area. In this model, the price prediction factors included historical condo selling price statistical data and other factors.  Considering real estate products are financial derivatives, the economic factors were considered for testing and training this model. Additionally, to explore the influence of the population change on real estate transaction price, related data was quantitatively analyzed in this model. More factors will be concerned and tested in future model updating to approve the accuracy of forecasting results.<br><br>
+
+          Through HTML web pages, we can visually observe and analyze the research results more intuitively. The functions of the website include 1. Interactive Diagrams: query historical or predicted condo prices in the map according to the region; 2. Dashboard: obtain data comparison line graphs through retrieval; 3. Data Table: filter query data in the form of tables.<br><br>
+  
+          In data analysis, we used Vector Autoregressive Model (VAR) because our dataset includes yearly, monthly and daily data. In addition, VAR could help to generalize the single-variable autoregressive model by allowing for multivariate time series. Due to the limitation of searching data, the earliest data used in this model is from January 2000. Since the continuity of data time in the dataset is inconsistent, we need to choose a model with less stringent requirements for time and information during analysis. And this model needs to capture the relationship between multiple quantities that change over time and predict serial numbers through time series. VAR satisfies the above requirements well. This prediction model uses Correlation Heatmap for feature engineering. In addition, the month is added as an extracted feature to evaluate sessional influencing factors through industry insights and analysis.<br><br>
+  
+          This prediction model uses Correlation Heatmap for feature engineering. In addition, the month is added as an extracted feature to evaluate sessional influencing factors through industry insights and analysis. And through the use of the following analysis methods: PCA Feature Reduction, Granger Causality Test for VAR, Johansen test for VAR, ADFuller test to check for stationarity, Differencing to make dataset stationery, and Durbin–Watson Test.<br><br>
+  
+          Model Accuracy Evaluation: More accurate results can be obtained if predict condo price within six months with this model. However, due to the scope of data quantity and frequency, there are errors in the prediction results. In the future, we will look for more data to achieve more accurate condo price forecasts.
+        </p>
+        <hr>
+      <!--
+      </div>
+      <div class="container" id="Summary">
+        <div class = "col-auto">
+          <h2>Vector Autoregressive (VAR) Models and Granger Causality in Time Series Analysis</h2>
+        </div>
+          <p>
+            Vector autoregressive (VAR) modelling with Granger causality tests is one of the most flexible ways to elucidate underlying causal mechanisms in time series data.  Granger causality is a concept of causality derived from the notion that causes may not occur after effects. Thus, if one variable is the cause of another, knowing the cause at an earlier point in time can enhance prediction of the impact later in time.  The VAR model has been widely employed in econometric analyses and neurobiology to elucidate underlying mechanisms using Granger causality.
+          </p>
+        </div>
+        //-->
+      </div>
+      <div class="container" id="Summary">
+        <div class = "col-auto">
+          <h2>Related Readings</h2>
+        </div>
+        <hr>
+        <a href="https://towardsdatascience.com/principal-component-analysis-for-dimensionality-reduction-115a3d157bad" style="font-size: 18px;">1. PCA Feature Reduction</a><br><br>
+        <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5161241/" style="font-size: 18px;">2. Granger Causality</a><br><br>
+        <a href="https://www.quantstart.com/articles/Johansen-Test-for-Cointegrating-Time-Series-Analysis-in-R/" style="font-size: 18px;">3. Johansen test</a><br><br>
+        <a href="https://www.quantstart.com/articles/Johansen-Test-for-Cointegrating-Time-Series-Analysis-in-R/" style="font-size: 18px;">4. ADFuller test to check for stationarity</a><br><br>
+        <a href="https://otexts.com/fpp2/stationarity.html" style="font-size: 18px;">5. Differencing to make dataset stationery</a><br><br>
+        <a href="https://www.investopedia.com/terms/d/durbin-watson-statistic.asp" style="font-size: 18px;">6. Durbin–Watson Test</a><br><br>
+      </div>
+        <hr>
+  
 
 
 
