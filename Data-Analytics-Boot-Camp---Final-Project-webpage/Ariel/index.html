@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final_project</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- d3 JavaScript -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+ <!-- Title Section -->    
+  <div class="container">
+      <!-- Background image 
+      <div id="Toronto_photo_slide" class="carousel slide" data-ride="carousel" data-interval="4000">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://jdlrealty.ca/images/2020/1006/Realty_1.jpg" class="d-block w-100" alt="...">
+          </div>
+              
+          <div class="carousel-item">
+            <img src="https://wiki.51agents.com/wp-content/uploads/sites/2/2018/07/toronto.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+      </div>
+      <hr>
+      //-->
+      <!-- Title -->
+      <div class = "row">
+        <div class = "col-12">
+          <h1 class="text-center">GTA Condo Price Forecast</h1>
+        </div>
+      </div>
+    </div>
+    <hr>
+<!-- Description and Instructions + Whats on this page-->
+    <div class="container">
+      <div class = "row">
+        <div class = "col-3">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">On This Page</h3>
+            </div>
+            <div class="panel-body">
+                <!-- Nav -->
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#Map" style="font-size: 15px;">Interactive Map</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#Dashboard" style="font-size: 15px;">Interactive Dashboard</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#Diagrams" style="font-size: 15px;">Interactive Diagrams</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#Table" style="font-size: 15px;">Interactive Data Table</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#Summary" style="font-size: 15px;">Text Summary</a>
+                  </li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div class = "col-9">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Introduction</h3>
+            </div>
+            <div class="panel-body">
+              <h6 class="card-text">What the page is about</h6>
+              <p class="card-text"></p>
+              <h6 class="card-text">What tools were used to forecast</h6>
+              <p class="card-text"></p>
+              <h6 class="card-text">What data was used</h6>
+              <p class="card-text"></p>
+              <h6 class="card-text">Legals</h6>
+              <p class="card-text"></p>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+    <hr>
+
+<!-- MAP Title -->
+    <div class="container" id="Map">
+      <div class = "col-auto">
+        <h2>Interactive Map</h2>
+      </div>
+    </div>
+    <hr>
+<!-- MAP Section -->
+    <div class="container" id="Map">
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="panel panel-primary map-panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">What Data Do You Need?</h3>
+            </div>
+            <div class="panel-body">
+                <label>Select Data Type</label>
+                <select class="form-control" id="dropDownListType" onchange="typeOptionChange(this.value)">
+                    <option value="" disabled selected hidden>Please select a type</option>
+                    <option value="Historic">Historic</option>
+                    <option value="Forecast">Forecast</option>
+                </select><br>
+
+                <label>Select Time</label>
+                <select class="form-control" id="dropDownListTime" onchange="timeOptionChange(this.value)">
+                    <option value="" disabled selected hidden>Please select a date</option>
+                </select>
+            </div>
+        </div>
+    </div>
+        <div class="col-lg-9">
+          <div id="mapid"></div>
+        </div>
+      </div>
+    </div>
+    <hr>
+<!--Dashboard Title -->
+    <div class="container" id="Dashboard">
+      <div class = "col-auto">
+          <h2>Interactive Dashboard</h2>
+      </div>
+    </div>
+
+<!--Dashboard Section-->
+<div class="container" id="Dashboard">
+  <div class="row">
+    <div class="col-sm-12">
+        <div class="page-header">
+            <h4> Section 1: Forecast Data</h4>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <div class="panel panel-primary" style="height: 200px">
+        <div class="panel-heading">
+            <h3 class="panel-title">Dashboard Filter</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="list-group">
+            <li class="list-group-item">
+                <label for="Date">Enter a Date
+                </label>
+                <br><input type="text" placeholder="2001-01-01" id="foreDate"/>
+              </li>
+
+              <li class="list-group-item">
+                <label for="Area_Code">Enter an Area_code
+                </label>
+                <br><input type="text" placeholder="E01" id="foreArea_Code"/>
+              </li>
+            
+            </ul>
+        </div>
+    </div>
+    </div>
+    <div class="col-3">
+      <div class="card border" style="height: 200px">
+        <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average Price</div>
+        <div class="card-body text-dark">
+          <h5 id="avgpricefore">average price here</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="card border" style="height: 200px">
+        <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average Price <br>Increase Rate</div>
+        <div class="card-body text-dark"> 
+          <h5 id="increaseratefore">increase rate here</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="card border" style="height: 200px">
+        <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average New Listing</div>
+        <div class="card-body text-dark">
+          <h5 id="newlistingfore">new listing here</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+        <div class="page-header">
+            <h4> Section 2: Historic Data</h4>
+        </div>
+    </div>
+  </div>
+  <div class = "row">
+    <div class="row">
+      <div class="col-3">
+        <div class="panel panel-primary" style="height: 200px">
+          <div class="panel-heading">
+              <h3 class="panel-title">Dashboard Filter</h3>
+          </div>
+          <div class="panel-body">
+            <ul class="list-group">
+              <li class="list-group-item">
+                  <label for="Date">Enter a Date
+                  </label>
+                  <br><input type="text" placeholder="2001-01-01" id="hisDate"/>
+                </li>
+  
+                <li class="list-group-item">
+                  <label for="Area_Code">Enter an Area_code
+                  </label>
+                  <br><input type="text" placeholder="E01" id="hisArea_Code"/>
+                </li>
+              </ul>
+          </div>     
+      </div>
+      </div>
+      <div class="col-3">
+        <div class="card border" style="height: 200px">
+          <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average Price</div>
+          <div class="card-body text-dark">
+            <h5 id="avgpricehis">average price here</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="card border" style="height: 200px">
+          <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average Price <br>Increase Rate</div>
+          <div class="card-body text-dark"> 
+            <h5 id="increaseratehis">increase rate here</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="card border" style="height: 200px">
+          <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average New Listing</div>
+          <div class="card-body text-dark">
+            <h5 id="newlistinghis">new listing here</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<hr>
+<!--Diagrams Title -->
+<div class="container" id="Diagrams">
+  <div class = "col-auto">
+      <h2>Interactive Diagrams</h2>
+  </div>
+</div>
+<hr>
+    <!--Interactive Diagrams Section -->
+    <div class="container" id="Diagrams">
+      <div class="col-lg-2">
+        <div class="panel panel-primary diagram-panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Select Input</h3>
+            </div>
+            <div class="panel-body">
+                <label>Select Data Type</label>
+                <select class="form-control" id="dropDownListType_diagram_1" onchange="typeOptionChange_diagram_1(this.value)">
+                    <option value="" disabled selected hidden>Please select a type</option>
+                    <option value="Historic">Historic</option>
+                    <option value="Forecast">Forecast</option>
+                </select><br>
+
+                <label>Select Time Range</label>
+                <h5>Start Date:</h5>
+                <select class="form-control" id="dropDownListTime_start_1" onchange="timeOptionChange_diagram_start_1(this.value)">
+                    <option value="" disabled selected hidden>Please select the start date</option>
+                </select>
+                <h5>End Date:</h5>
+                <select class="form-control" id="dropDownListTime_end_1" onchange="timeOptionChange_diagram_end_1(this.value)">
+                    <option value="" disabled selected hidden>Please select the end date</option>
+                </select><br>
+
+                <label>Select Region</label>
+                <select class="form-control" id="dropDownListType_region_1" onchange="typeOptionChange_region_1(this.value)">
+                    <option value="" disabled selected hidden>Please select a region</option>
+                    <option value="C01">C01</option>
+                    <option value="C02">C02</option>
+                    <option value="C03">C03</option>
+                    <option value="C04">C04</option>
+                    <option value="C06">C06</option>
+                    <option value="C07">C07</option>
+                    <option value="C08">C08</option>
+                    <option value="C09">C09</option>
+                    <option value="C10">C10</option>
+                    <option value="C11">C11</option>
+                    <option value="C12">C12</option>
+                    <option value="C13">C13</option>
+                    <option value="C14">C14</option>
+                    <option value="C15">C15</option>
+                    <option value="E01">E01</option>
+                    <option value="E02">E02</option>
+                    <option value="E03">E03</option>
+                    <option value="E04">E04</option>
+                    <option value="E05">E05</option>
+                    <option value="E06">E06</option>
+                    <option value="E07">E07</option>
+                    <option value="E08">E08</option>
+                    <option value="E09">E09</option>
+                    <option value="E10">E10</option>
+                    <option value="E11">E11</option>
+                    <option value="W01">W01</option>
+                    <option value="W02">W02</option>
+                    <option value="W03">W03</option>
+                    <option value="W04">W04</option>
+                    <option value="W05">W05</option>
+                    <option value="W06">W06</option>
+                    <option value="W07">W07</option>
+                    <option value="W08">W08</option>
+                    <option value="W09">W09</option>
+                    <option value="W10">W10</option>
+                </select><br>
+                <button type="confirmButton" onclick="buttonClicked()">Confirm</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="panel panel-primary diagram-panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Select Input (optional)</h3>
+            </div>
+            <div class="panel-body">
+                <label>Select Data Type</label>
+                <select class="form-control" id="dropDownListType_diagram_2" onchange="typeOptionChange_diagram_2(this.value)">
+                    <option value="" disabled selected hidden>Please select a type</option>
+                    <option value="Historic">Historic</option>
+                    <option value="Forecast">Forecast</option>
+                </select><br>
+
+                <label>Select Time Range</label>
+                <h5>Start Date:</h5>
+                <select class="form-control" id="dropDownListTime_start_2" onchange="timeOptionChange_diagram_start_2(this.value)">
+                    <option value="" disabled selected hidden>Please select the start date</option>
+                </select>
+                <h5>End Date:</h5>
+                <select class="form-control" id="dropDownListTime_end_2" onchange="timeOptionChange_diagram_end_2(this.value)">
+                    <option value="" disabled selected hidden>Please select the end date</option>
+                </select><br>
+
+                <label>Select Region</label>
+                <select class="form-control" id="dropDownListType_region_2" onchange="typeOptionChange_region_2(this.value)">
+                    <option value="" disabled selected hidden>Please select a region</option>
+                    <option value="C01">C01</option>
+                    <option value="C02">C02</option>
+                    <option value="C03">C03</option>
+                    <option value="C04">C04</option>
+                    <option value="C06">C06</option>
+                    <option value="C07">C07</option>
+                    <option value="C08">C08</option>
+                    <option value="C09">C09</option>
+                    <option value="C10">C10</option>
+                    <option value="C11">C11</option>
+                    <option value="C12">C12</option>
+                    <option value="C13">C13</option>
+                    <option value="C14">C14</option>
+                    <option value="C15">C15</option>
+                    <option value="E01">E01</option>
+                    <option value="E02">E02</option>
+                    <option value="E03">E03</option>
+                    <option value="E04">E04</option>
+                    <option value="E05">E05</option>
+                    <option value="E06">E06</option>
+                    <option value="E07">E07</option>
+                    <option value="E08">E08</option>
+                    <option value="E09">E09</option>
+                    <option value="E10">E10</option>
+                    <option value="E11">E11</option>
+                    <option value="W01">W01</option>
+                    <option value="W02">W02</option>
+                    <option value="W03">W03</option>
+                    <option value="W04">W04</option>
+                    <option value="W05">W05</option>
+                    <option value="W06">W06</option>
+                    <option value="W07">W07</option>
+                    <option value="W08">W08</option>
+                    <option value="W09">W09</option>
+                    <option value="W10">W10</option>
+                </select><br>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <div id="Data_Plot"></div>
+    </div>
+    </div>
+</div>
+
+    </div>
+    <hr>
+
+    <!--Interactive Data Table Section -->
+    <div class="container" id="Table">
+    <div class = "col-auto">
+      <h2>Interactive Data Table</h2>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-3">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Filter Search</h3>
+          </div>
+          <div class="panel-body">
+            <ul class="list-group">
+            <li class="list-group-item">
+                <label for="Date">Enter a Date
+                </label>
+                <br><input type="text" placeholder="2001-01-01" id="Date"/>
+              </li>
+              <li class="list-group-item">
+                <label for="Month">Enter a Month
+                </label>
+                <br><input type="text" placeholder="1" id="Month"/>
+              </li>
+              <li class="list-group-item">
+                <label for="Area_Code">Enter an Area_code
+                </label>
+                <br><input type="text" placeholder="E01" id="Area_Code"/>
+              </li>
+              <li class="list-group-item">
+                  <label for="Average_Price_Month">Enter your Budget</label>
+                  <br><input type="number" placeholder=100000 id="Average_Price_Month"/>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-9 table-responsive" style="height: 700px; overflow: auto; position: relative;">
+        <table class="table table-bordered table-hover" style="width: 100%; text-align: center; vertical-align: top;" >
+            <thead >
+              <tr class="table-light">
+                <th style="position: sticky; top: 0;">Date (YYYY/MM/DD)</th>
+                <th style="position: sticky; top: 0;">Prime_Rate</th>
+                <th style="position: sticky; top: 0;">Inflation</th>
+                <th style="position: sticky; top: 0;">GDP</th>
+                <th style="position: sticky; top: 0;">Metal_Price</th>
+                <th style="position: sticky; top: 0;">NASDAQ</th>
+                <th style="position: sticky; top: 0;">Ontario_Immigrants_
+                International</th>
+                <th style="position: sticky; top: 0;">Toronto_Median_Age</th>
+                <th style="position: sticky; top: 0;">UT_Total_
+                  Enrollment</th>
+                <th style="position: sticky; top: 0;">Toronto_
+                  Participation_Rate</th>
+                <th style="position: sticky; top: 0;">Toronto_E
+                  mployment_Rate</th>
+                <th style="position: sticky; top: 0;">Toronto_Population</th>
+                <th style="position: sticky; top: 0;">Total_Condo_
+                  Sold_Number</th>
+                <th style="position: sticky; top: 0;">Total_Condo_Sales</th>
+                <th style="position: sticky; top: 0;">Average_Price_Month</th>
+                <th style="position: sticky; top: 0;">New_Units_
+                  Number_Planned</th> 
+                <th style="position: sticky; top: 0;">New_Units_
+                  Number_Construction</th>
+                <th style="position: sticky; top: 0;">Month</th>
+                <th style="position: sticky; top: 0;">Area_Code</tch>
+                <th style="position: sticky; top: 0;">Med_Price</th>
+              </tr>
+            </thead>
+            <tbody class = "table-light" style="text-align: center;"></tbody>
+          </table>
+      </div>
+    </div>
+    </div>
+    <hr>
+
+    <!-- Text Summary  Section -->
+    <div class="container" id="Summary">
+    <div class = "col-auto">
+      <h2>Text Summary</h2>
+    </div>
+    </div>
+    <hr>
+
+
+
+
+    <!-- Bootstrap's JavaScript Files -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+   
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <!-- API key -->
+    <script type="text/javascript" src="static/js/config.js"></script>
+
+    <!-- Our JavaScript -->
+    <script type="text/javascript" src="static/js/Historic_Forecast_Data.js"></script>
+    <script type="text/javascript" src="static/js/Historic_Time.js"></script>
+    <script type="text/javascript" src="static/js/Forecast_Time.js"></script>
+    <script type="text/javascript" src="static/js/logic.js"></script>
+    <script type="text/javascript" src="static/js/dashboard.js"></script>
+    <script src="static/js/data.js"></script>
+    <script src="static/js/table_logic.js"></script> 
+    <script></script>
+</body>
+
+</html>
