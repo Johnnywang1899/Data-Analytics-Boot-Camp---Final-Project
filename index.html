@@ -59,7 +59,7 @@
         <div class = "col-3">
           <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">On This Page</h3>
+                <h3 class="panel-title" style="font-size: 18px;">On This Page</h3>
             </div>
             <div class="panel-body">
                 <!-- Nav -->
@@ -86,18 +86,18 @@
         <div class = "col-9">
           <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Introduction</h3>
+                <h3 class="panel-title" style="font-size: 18px;">Introduction</h3>
             </div>
             <div class="panel-body">
-              <h6 class="card-text">What the page is about</h6>
-              <p class="card-text">This web page provides tools for people interested in the real estate market in Greater Toronto Area. It displays the condo price trend in the past 20 years and forecasting condo prices for the next four years.  
+              <h6 class="card-text" style="font-size: 16px;">What the page is about</h6>
+              <p class="card-text" style="font-size: 14px;">This web page provides tools for people interested in the real estate market in Greater Toronto Area. It displays the condo price trend in the past 20 years and forecasting condo prices for the next four years.  
               </p>
-              <h6 class="card-text">What tools were used to forecast</h6>
-              <p class="card-text"></p>
-              <h6 class="card-text">What data was used</h6>
-              <p class="card-text">All the data sources used for analysis were collected from public databases. The datasets for factors potentially influencing condo price, such as GDP, the population in Toronto, were provided by government organizations (e.g., Statistic Canada). Economic indexes like metal price and gold price were found on NGO database (e.g. World Bank). Toronto Reginal Real Estate Board, a non-profit NGO published condo sales and price data for listing regions in Toronto. We used those data for average condo price. </p>
-              <h6 class="card-text">Legals</h6>
-              <p class="card-text">Many factors influence real estate market, our prediction is not guarenteed to reflect the price in the future. Please use this tool with cautious to decide on your purchase. 
+              <h6 class="card-text" style="font-size: 16px;">What tools were used to forecast</h6>
+              <p class="card-text" style="font-size: 14px;"></p>
+              <h6 class="card-text" style="font-size: 16px;">What data was used</h6>
+              <p class="card-text" style="font-size: 14px;">All the data sources used for analysis were collected from public databases. The datasets for factors potentially influencing condo price, such as GDP, the population in Toronto, were provided by government organizations (e.g., Statistic Canada). Economic indexes like metal price and gold price were found on NGO database (e.g. World Bank). Toronto Reginal Real Estate Board, a non-profit NGO published condo sales and price data for listing regions in Toronto. We used those data for average condo price. </p>
+              <h6 class="card-text" style="font-size: 16px;">Legals</h6>
+              <p class="card-text" style="font-size: 14px;">Many factors influence real estate market, our prediction is not guarenteed to reflect the price in the future. Please use this tool with cautious to decide on your purchase. 
               </p>
             </div>
           </div>
@@ -289,8 +289,9 @@
     <div class="col-lg-8">
         <div id="Data_Plot"></div>
     </div>
-  </div><hr>
-</div>
+  </div>
+  <hr>
+  </div>
     
 
     <!--Dashboard Title -->
@@ -310,7 +311,7 @@
   </div>
   <div class="row">
     <div class="col-4">
-      <div class="panel panel-primary" style="height: 200px">
+      <div class="panel panel-primary" style="height: 230px">
         <div class="panel-heading">
             <h3 class="panel-title">Dashboard Filter</h3>
         </div>
@@ -327,24 +328,28 @@
                 </label>
                 <br><input type="text" placeholder="E01" id="foreArea_Code" onchange="fore_area_code_input()"/>
               </li>
+              <br>
+                
+                <button type="button" class = "btn btn-outline-dark" onclick="clearfore()">Clear Input</button>
             </ul>
+
         </div>     
     </div>
     </div>
     <div class="col-4">
-      <div class="card border" style="height: 200px">
-        <div class="card-header" style="font-weight: bold; font-size: x-large; height: 60px; text-align: center;">Average Price</div>
+      <div class="card border" style="height: 230px">
+        <div class="card-header bg-dash" style="font-weight: bold; font-size: x-large; height: 50px; text-align: center;">Average Price</div>
         <div class="card-body text-dash">
-          <h5 id="avgpricefore" style="font-size: 20px; font-weight: bold; text-align: center; "> <br>Average price will be displayed here</h5>
+          <h5 id="avgpricefore" style="font-size: 25px; font-weight: bold; text-align: center; "> <br>Average price will be <br>displayed here</h5>
         </div>
       </div>
     </div>
 
     <div class="col-4">
-      <div class="card border" style="height: 200px">
-        <div class="card-header" style="font-weight: bold; font-size: x-large; height: 60px; text-align: center;">Price Increase Rate</div>
+      <div class="card border" style="height: 230px">
+        <div class="card-header bg-dash" style="font-weight: bold; font-size: x-large; height: 50px; text-align: center;">Price Increase Rate</div>
         <div class="card-body text-dash">
-          <h5 id="increaseratefore" style="font-size: 20px; font-weight: bold; text-align: center; vertical-align: middle;"><br>Increase Rate will be displayed here</h5>
+          <h5 id="increaseratefore" style="font-size: 25px; font-weight: bold; text-align: center; vertical-align: middle;"><br>Increase Rate will be <br>displayed here</h5>
         </div>
       </div>
     </div>
@@ -359,7 +364,7 @@
   
     <div class="row">
       <div class="col-3">
-        <div class="panel panel-primary" style="height: 200px">
+        <div class="panel panel-primary" style="height: 230px">
           <div class="panel-heading">
               <h3 class="panel-title">Dashboard Filter</h3>
           </div>
@@ -376,33 +381,36 @@
                   </label>
                   <br><input type="text" placeholder="E01" id="hisArea_Code" onchange="his_area_code_input()"/>
                 </li>
+                <br>
+                
+                <button type="button" class = "btn btn-outline-dark" onclick="clearhis()">Clear Input</button>
               </ul>
           </div>     
       </div>
       </div>
       <div class="col-3">
-        <div class="card border" style="height: 200px">
-          <div class="card-header" style="font-weight: bold; font-size: x-large; height: 60px; text-align: center;">Average Price</div>
+        <div class="card border" style="height: 230px">
+          <div class="card-header bg-dash" style="font-weight: bold; font-size: x-large; height: 50px; text-align: center;">Average Price</div>
           <div class="card-body text-dash">
-            <h5 id="avgpricehis" style="font-size: 20px; font-weight: bold; text-align: center; vertical-align: middle;"><br>Average price will be displayed here</h5>
+            <h5 id="avgpricehis" style="font-size: 25px; font-weight: bold; text-align: center; vertical-align: middle;"><br>Average price will be displayed here</h5>
           </div>
         </div>
       </div>
 
       <div class="col-3">
-        <div class="card border" style="height: 200px">
-          <div class="card-header" style="font-weight: bold; font-size: x-large; height: 60px; text-align: center;">Price Increase Rate</div>
+        <div class="card border" style="height: 230px">
+          <div class="card-header bg-dash" style="font-weight: bold; font-size: x-large; height: 50px; text-align: center;">Price Increase Rate</div>
           <div class="card-body text-dash">
-            <h5 id="increaseratehis" style="font-size: 20px; font-weight: bold; text-align: center; vertical-align: middle;"><br>Increase Rate will be displayed here</h5>
+            <h5 id="increaseratehis" style="font-size: 25px; font-weight: bold; text-align: center; vertical-align: middle;"><br>Increase Rate will be displayed here</h5>
           </div>
         </div>
       </div>
 
       <div class="col-3">
-        <div class="card border" style="height: 200px">
-          <div class="card-header" style="font-weight: bold; font-size: x-large; height: 60px; text-align: center;">Average New Listing</div>
+        <div class="card border" style="height: 230px">
+          <div class="card-header bg-dash" style="font-weight: bold; font-size: x-large; height: 50px; text-align: center;">Average New Listing</div>
           <div class="card-body text-dash">
-            <h5 id="newlistinghis" style="font-size: 20px; font-weight: bold; text-align: center; vertical-align: middle;"><br>Average New Listing will be displayed here</h5>
+            <h5 id="newlistinghis" style="font-size: 25px; font-weight: bold; text-align: center; vertical-align: middle;"><br>Average New Listing will be displayed here</h5>
           </div>
         </div>
       </div>
