@@ -2,10 +2,10 @@
 
 html, body {
   height: 100%;
-  margin-top: 100px;
-  background-color: rgb(212, 231, 255);
-  margin-left:5%; 
-  margin-right:5%
+  margin-top: 0px;
+  background-color: rgb(244, 248, 253);
+  margin-left:3%; 
+  margin-right:3%
 }
 
 .map-panel {
@@ -66,6 +66,12 @@ h4 {
   border-color: #7485ad;
 }
 
+.text-dash {
+  color: #4083b9
+}
 
+.text-title{
+  color: #262829;
+}
 
 

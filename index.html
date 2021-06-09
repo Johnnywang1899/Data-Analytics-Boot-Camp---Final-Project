@@ -26,28 +26,33 @@
 <body>
  <!-- Title Section -->    
   <div class="container">
-      <!-- Background image 
+      <!-- Background image-->
       <div id="Toronto_photo_slide" class="carousel slide" data-ride="carousel" data-interval="4000">
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="https://jdlrealty.ca/images/2020/1006/Realty_1.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-item active" style="height: 450px;">
+            <img src="https://harveykalles.com/wp-content/uploads/2019/09/noir-condos.jpg" class="d-block w-100" alt="...">
           </div>
               
-          <div class="carousel-item">
+          <div class="carousel-item" style="height: 450px;">
             <img src="https://wiki.51agents.com/wp-content/uploads/sites/2/2018/07/toronto.jpg" class="d-block w-100" alt="...">
+          </div>
+
+          <div class="carousel-item" style="height: 450px;">
+            <img src="https://torontorealtyblog.com/wp-content/uploads/2020/08/Toronto-Skyline-Condos-Boats.jpg" class="d-block w-100" alt="...">
           </div>
         </div>
       </div>
+      
       <hr>
-      //-->
+      
       <!-- Title -->
       <div class = "row">
         <div class = "col-12">
-          <h1 class="text-center">GTA Condo Price Forecast</h1>
+          <h1 class="text-center" style="text-title">GTA Condo Price Forecast</h1>
         </div>
       </div>
+      <hr>
     </div>
-    <hr>
 <!-- Description and Instructions + Whats on this page-->
     <div class="container">
       <div class = "row">
@@ -85,29 +90,31 @@
             </div>
             <div class="panel-body">
               <h6 class="card-text">What the page is about</h6>
-              <p class="card-text"></p>
+              <p class="card-text">This web page provides tools for people interested in the real estate market in Greater Toronto Area. It displays the condo price trend in the past 20 years and forecasting condo prices for the next four years.  
+              </p>
               <h6 class="card-text">What tools were used to forecast</h6>
               <p class="card-text"></p>
               <h6 class="card-text">What data was used</h6>
-              <p class="card-text"></p>
+              <p class="card-text">All the data sources used for analysis were collected from public databases. The datasets for factors potentially influencing condo price, such as GDP, the population in Toronto, were provided by government organizations (e.g., Statistic Canada). Economic indexes like metal price and gold price were found on NGO database (e.g. World Bank). Toronto Reginal Real Estate Board, a non-profit NGO published condo sales and price data for listing regions in Toronto. We used those data for average condo price. </p>
               <h6 class="card-text">Legals</h6>
-              <p class="card-text"></p>
+              <p class="card-text">Many factors influence real estate market, our prediction is not guarenteed to reflect the price in the future. Please use this tool with cautious to decide on your purchase. 
+              </p>
             </div>
           </div>
         </div>
-      </div> 
+      </div> <hr>
     </div>
-    <hr>
+    
 
 <!-- MAP Title -->
-    <div class="container" id="Map">
-      <div class = "col-auto">
-        <h2>Interactive Map</h2>
-      </div>
+    <div class="container">
+      <div class="row" id="Map" >
+        <div class = "col-auto">
+          <h2>Interactive Map</h2>
+        </div>
     </div>
     <hr>
 <!-- MAP Section -->
-    <div class="container" id="Map">
       <div class="row">
         <div class="col-lg-3">
           <div class="panel panel-primary map-panel">
@@ -132,19 +139,20 @@
         <div class="col-lg-9">
           <div id="mapid"></div>
         </div>
-      </div>
+      </div><hr>
     </div>
-    <hr>
+    
 
 <!--Diagrams Title -->
-<div class="container" id="Diagrams">
-  <div class = "col-auto">
+<div class="container">
+  <div class="row" id="Diagrams" >
+    <div class = "col-auto">
       <h2>Interactive Diagrams</h2>
-  </div>
+    </div>
 </div>
 <hr>
     <!--Interactive Diagrams Section -->
-    <div class="container" id="Diagrams">
+    <div calss="row">
       <div class="col-lg-2">
         <div class="panel panel-primary diagram-panel">
             <div class="panel-heading">
@@ -206,6 +214,7 @@
                     <option value="W08">W08</option>
                     <option value="W09">W09</option>
                     <option value="W10">W10</option>
+                    <option value="All">All</option>
                 </select><br>
                 <button type="confirmButton" onclick="buttonClicked()">Confirm</button>
             </div>
@@ -272,6 +281,7 @@
                     <option value="W08">W08</option>
                     <option value="W09">W09</option>
                     <option value="W10">W10</option>
+                    <option value="All">All</option>
                 </select><br>
             </div>
         </div>
@@ -279,24 +289,23 @@
     <div class="col-lg-8">
         <div id="Data_Plot"></div>
     </div>
-    </div>
+  </div><hr>
 </div>
-    <hr>
+    
 
     <!--Dashboard Title -->
-    <div class="container" id="Dashboard">
-      <div class = "col-auto">
+    <div class="container">
+      <div class="row" id="Dashboard" >
+        <div class = "col-auto">
           <h2>Interactive Dashboard</h2>
-      </div>
-    </div>
-
+        </div>
+    </div><hr>
+    
 <!--Dashboard Section-->
-<div class="container" id="Dashboard">
   <div class="row">
     <div class="col-sm-12">
-        <div class="page-header">
             <h4> Section 1: Forecast Data</h4>
-        </div>
+            <br>
     </div>
   </div>
   <div class="row">
@@ -324,35 +333,32 @@
     </div>
     <div class="col-4">
       <div class="card border" style="height: 200px">
-        <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average Price</div>
-        <div class="card-body text-primary
-        ">
-          <h5 id="avgpricefore" style="font-size: 20px; font-weight: bold; text-align: center; vertical-align: middle;">Average price will be displayed here</h5>
+        <div class="card-header" style="font-weight: bold; font-size: x-large; height: 60px; text-align: center;">Average Price</div>
+        <div class="card-body text-dash">
+          <h5 id="avgpricefore" style="font-size: 20px; font-weight: bold; text-align: center; "> <br>Average price will be displayed here</h5>
         </div>
       </div>
     </div>
-    
+
     <div class="col-4">
       <div class="card border" style="height: 200px">
-        <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average New Listing</div>
-        <div class="card-body text-primary
-        " >
-          <h5 id="newlistingfore" style="font-size: 20px; font-weight: bold; text-align: center; vertical-align: middle;">Average New Listing will be displayed here</h5>
+        <div class="card-header" style="font-weight: bold; font-size: x-large; height: 60px; text-align: center;">Price Increase Rate</div>
+        <div class="card-body text-dash">
+          <h5 id="increaseratefore" style="font-size: 20px; font-weight: bold; text-align: center; vertical-align: middle;"><br>Increase Rate will be displayed here</h5>
         </div>
       </div>
     </div>
   </div>
+    
 
   <div class="row">
     <div class="col-sm-12">
-        <div class="page-header">
-            <h4> Section 2: Historic Data</h4>
-        </div>
+            <h4> Section 2: Historic Data</h4><br>
     </div>
   </div>
   
     <div class="row">
-      <div class="col-4">
+      <div class="col-3">
         <div class="panel panel-primary" style="height: 200px">
           <div class="panel-heading">
               <h3 class="panel-title">Dashboard Filter</h3>
@@ -374,42 +380,54 @@
           </div>     
       </div>
       </div>
-      <div class="col-4">
+      <div class="col-3">
         <div class="card border" style="height: 200px">
-          <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average Price</div>
-          <div class="card-body text-primary
-          ">
-            <h5 id="avgpricehis" style="font-size: 20px; font-weight: bold; text-align: center; vertical-align: middle;">Average price will be displayed here</h5>
+          <div class="card-header" style="font-weight: bold; font-size: x-large; height: 60px; text-align: center;">Average Price</div>
+          <div class="card-body text-dash">
+            <h5 id="avgpricehis" style="font-size: 20px; font-weight: bold; text-align: center; vertical-align: middle;"><br>Average price will be displayed here</h5>
           </div>
         </div>
       </div>
-      
-      <div class="col-4">
+
+      <div class="col-3">
         <div class="card border" style="height: 200px">
-          <div class="card-header" style="font-weight: bold; font-size: x-large; height: 80px; text-align: center;">Average New Listing</div>
-          <div class="card-body text-primary
-          ">
-            <h5 id="newlistinghis" style="font-size: 20px; font-weight: bold; text-align: center; vertical-align: middle;">Average New Listing will be displayed here</h5>
+          <div class="card-header" style="font-weight: bold; font-size: x-large; height: 60px; text-align: center;">Price Increase Rate</div>
+          <div class="card-body text-dash">
+            <h5 id="increaseratehis" style="font-size: 20px; font-weight: bold; text-align: center; vertical-align: middle;"><br>Increase Rate will be displayed here</h5>
           </div>
         </div>
       </div>
-  </div>
+
+      <div class="col-3">
+        <div class="card border" style="height: 200px">
+          <div class="card-header" style="font-weight: bold; font-size: x-large; height: 60px; text-align: center;">Average New Listing</div>
+          <div class="card-body text-dash">
+            <h5 id="newlistinghis" style="font-size: 20px; font-weight: bold; text-align: center; vertical-align: middle;"><br>Average New Listing will be displayed here</h5>
+          </div>
+        </div>
+      </div>
+  </div><hr>
 </div>
 
-<hr>
-    <!--Interactive Data Table Section -->
-    <div class="container" id="Table">
+
+
+<!--data table Title -->
+<div class="container">
+  <div class="row" id="Table" >
     <div class = "col-auto">
       <h2>Interactive Data Table</h2>
     </div>
-    <hr>
+</div><hr>
+
+
+    <!--Interactive Data Table Section -->
     <div class="row">
       <div class="col-3">
         <div class="panel panel-primary">
           <div class="panel-heading">
             <h3 class="panel-title">Filter Search</h3>
           </div>
-          <div class="panel-body">
+          <div class="panel-body" id = "tableinput">
             <ul class="list-group">
             <li class="list-group-item">
                 <label for="Date">Enter a Date
@@ -439,40 +457,33 @@
             <thead >
               <tr class="table-light">
                 <th style="position: sticky; top: 0;">Date (YYYY/MM/DD)</th>
-                <th style="position: sticky; top: 0;">Prime_Rate</th>
+                <th style="position: sticky; top: 0;">Area Code</th>
+                <th style="position: sticky; top: 0;">Total Condo Sold Number</th>
+                <th style="position: sticky; top: 0;">Average Price</th>
+                <th style="position: sticky; top: 0;">Median Price</th>
+                <th style="position: sticky; top: 0;">Prime Rate</th>
                 <th style="position: sticky; top: 0;">Inflation</th>
                 <th style="position: sticky; top: 0;">GDP</th>
                 <th style="position: sticky; top: 0;">Metal_Price</th>
-                <th style="position: sticky; top: 0;">NASDAQ</th>
-                <th style="position: sticky; top: 0;">Ontario_Immigrants_
-                International</th>
-                <th style="position: sticky; top: 0;">Toronto_Median_Age</th>
-                <th style="position: sticky; top: 0;">UT_Total_
-                  Enrollment</th>
-                <th style="position: sticky; top: 0;">Toronto_
-                  Participation_Rate</th>
-                <th style="position: sticky; top: 0;">Toronto_E
-                  mployment_Rate</th>
-                <th style="position: sticky; top: 0;">Toronto_Population</th>
-                <th style="position: sticky; top: 0;">Total_Condo_
-                  Sold_Number</th>
-                <th style="position: sticky; top: 0;">Total_Condo_Sales</th>
-                <th style="position: sticky; top: 0;">Average_Price_Month</th>
-                <th style="position: sticky; top: 0;">New_Units_
-                  Number_Planned</th> 
-                <th style="position: sticky; top: 0;">New_Units_
-                  Number_Construction</th>
+                <th style="position: sticky; top: 0;">NASDAQ Index</th>
+                <th style="position: sticky; top: 0;">Ontario International Immigrants</th>
+                <th style="position: sticky; top: 0;">Toronto Median Age</th>
+                <th style="position: sticky; top: 0;">U of T Total Enrollment</th>
+                <th style="position: sticky; top: 0;">TToronto Participation Rate</th>
+                <th style="position: sticky; top: 0;">Toronto Employment Rate</th>
+                <th style="position: sticky; top: 0;">Toronto Population</th> 
+                <th style="position: sticky; top: 0;">New Units Number (Planned)</th>
+                <th style="position: sticky; top: 0;">New Units Number (Construction)</th>
                 <th style="position: sticky; top: 0;">Month</th>
-                <th style="position: sticky; top: 0;">Area_Code</tch>
-                <th style="position: sticky; top: 0;">Med_Price</th>
+
               </tr>
             </thead>
             <tbody class = "table-light" style="text-align: center;"></tbody>
           </table>
       </div>
+    </div><hr>
     </div>
-    </div>
-    <hr>
+    
 
     <!-- Text Summary  Section -->
     <div class="container" id="Summary">

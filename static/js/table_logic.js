@@ -1,5 +1,5 @@
 // from data.js
-const tableData = data;
+const all_data = data;
 
 // get table references
 var tbody = d3.select("tbody");
@@ -54,8 +54,8 @@ function updateFilters() {
   // 7. Use this function to filter the table when data is entered.
 function filterTable() {
   
-    // 8. Set the filtered data to the tableData.
-    let filteredData = tableData;
+    // 8. Set the filtered data to the all_data.
+    let filteredData = all_data;
     console.log(filteredData);
   
     // 9. Loop through all of the filters and keep any data that
@@ -68,10 +68,10 @@ function filterTable() {
             filteredData = filteredData.filter(row => row.Area_Code === filters[filterid]);
         }
         if (filterid === "Average_Price_Month"){
-            filteredData = filteredData.filter(row => row.Average_Price_Month <= filters[filterid]);
+            filteredData = filteredData.filter(row => row.Avg_Price <= filters[filterid]);
         }
         if (filterid === "Month"){
-            filteredData = filteredData.filter(row => row.Month === filters[filterid]);
+            filteredData = filteredData.filter(row => row.Month.toString() === filters[filterid]);
         }
     }
     
@@ -83,9 +83,10 @@ function filterTable() {
 
   
   // 2. Attach an event to listen for changes to each filter
-  d3.selectAll("input").on("change", updateFilters);
+  d3.select("#tableinput").selectAll("input").on("change", updateFilters);
   
 
   // Build the table when the page loads
-  
-  buildTable(tableData);
+  var current_data = all_data;
+  current_data = current_data.filter(row => row.Date === "2021-04-01");
+  buildTable(current_data);

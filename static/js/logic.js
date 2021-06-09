@@ -329,11 +329,13 @@ function typeOptionChange_diagram_1(selected_type){
         window.historic_time_ascending.forEach((historicTime) => {
             dropDownTime.append("option").text(historicTime.Date).property("value", historicTime.Date);
         })
+        timeOptionChange_diagram_start_1('2000-01-01');
     }
     else if (selected_type === "Forecast"){
         window.forecast_time_ascending.forEach((forecastTime) => {
             dropDownTime.append("option").text(forecastTime.Date).property("value", forecastTime.Date);
         })
+        timeOptionChange_diagram_start_1('2021-05-01');
     }
 
     dropDownTime = d3.select("#dropDownListTime_end_1");
@@ -342,11 +344,13 @@ function typeOptionChange_diagram_1(selected_type){
         window.historic_time_descending.forEach((historicTime) => {
             dropDownTime.append("option").text(historicTime.Date).property("value", historicTime.Date);
         })
+        timeOptionChange_diagram_end_1('2021-04-01');
     }
     else if (selected_type === "Forecast"){
         window.forecast_time_descending.forEach((forecastTime) => {
             dropDownTime.append("option").text(forecastTime.Date).property("value", forecastTime.Date);
         })
+        timeOptionChange_diagram_end_1('2024-05-01');
     }
 }
 
@@ -359,11 +363,13 @@ function typeOptionChange_diagram_2(selected_type){
         window.historic_time_ascending.forEach((historicTime) => {
             dropDownTime.append("option").text(historicTime.Date).property("value", historicTime.Date);
         })
+        timeOptionChange_diagram_start_2('2000-01-01');
     }
     else if (selected_type === "Forecast"){
         window.forecast_time_ascending.forEach((forecastTime) => {
             dropDownTime.append("option").text(forecastTime.Date).property("value", forecastTime.Date);
         })
+        timeOptionChange_diagram_start_2('2021-05-01');
     }
 
     dropDownTime = d3.select("#dropDownListTime_end_2");
@@ -372,11 +378,13 @@ function typeOptionChange_diagram_2(selected_type){
         window.historic_time_descending.forEach((historicTime) => {
             dropDownTime.append("option").text(historicTime.Date).property("value", historicTime.Date);
         })
+        timeOptionChange_diagram_end_2('2021-04-01');
     }
     else if (selected_type === "Forecast"){
         window.forecast_time_descending.forEach((forecastTime) => {
             dropDownTime.append("option").text(forecastTime.Date).property("value", forecastTime.Date);
         })
+        timeOptionChange_diagram_end_2('2024-05-01');
     }
 }
 
