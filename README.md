@@ -64,6 +64,6 @@ The graphs below use 2018-05 to 2019-04 and 2018-09 to 2019-08 as training data 
 
 ![Error_combined.png](images/Error_combined.png)
 
-## Link to Presentation Slides
+## Link to Presentation Slides (with script)
 
 https://docs.google.com/presentation/d/1_Hx2klq6_iLwuS5gudjmJaim-R45J-1z/edit#slide=id.gdf3d532875_13_81
