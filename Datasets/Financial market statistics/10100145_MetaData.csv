@@ -1,0 +1,84 @@
+﻿"Cube Title","Product Id","CANSIM Id",URL,"Cube Notes","Archive Status",Frequency,"Start Reference Period","End Reference Period","Total number of dimensions"
+"Financial market statistics, as at Wednesday, Bank of Canada",10100145,176-0078,"https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1010014501",,"CURRENT - a cube available to the public and that is current",Weekly,1957-01-02,2021-05-12,2
+
+"Dimension ID","Dimension name","Dimension Notes","Dimension Definitions"
+1,Geography,,
+2,Rates,,
+
+"Dimension ID","Member Name","Classification Code","Member ID","Parent Member ID",Terminated,"Member Notes","Member Definitions"
+1,Canada,[11124],1,,,,
+2,"Bank rate",,2,,,,
+2,"Chartered bank administered interest rates - Prime rate",,4,,,2,
+2,"Chartered bank - consumer loan rate",,5,,,2,
+2,"Forward premium or discount (-), United States dollars in Canada: 1 month",,6,,t,,
+2,"Forward premium or discount (-), United States dollars in Canada: 3 month",,7,,t,,
+2,"Prime corporate paper rate: 1 month",,8,,t,3;7,
+2,"Prime corporate paper rate: 2 month",,9,,t,3;7,
+2,"Prime corporate paper rate: 3 month",,10,,t,3;7,
+2,"Bankers' acceptances: 1 month",,11,,t,4;7,
+2,"Bankers' acceptances: 2 month",,12,,t,4;7,
+2,"Bankers' acceptances: 3 month",,13,,t,4;7,
+2,"Overnight money market financing, 7 day average",,16,,,5,
+2,"Selected Government of Canada benchmark bond yields: 2 year",,18,,,,
+2,"Selected Government of Canada benchmark bond yields: 3 year",,19,,,,
+2,"Selected Government of Canada benchmark bond yields: 5 year",,20,,,,
+2,"Selected Government of Canada benchmark bond yields: 7 year",,21,,,,
+2,"Selected Government of Canada benchmark bond yields: 10 year",,22,,,,
+2,"Selected Government of Canada benchmark bond yields: long term",,23,,,,
+2,"Government of Canada marketable bonds, average yield: 1-3 year",,24,,,6,
+2,"Government of Canada marketable bonds, average yield: 3-5 year",,25,,,6,
+2,"Government of Canada marketable bonds, average yield: 5-10 year",,26,,,6,
+2,"Government of Canada marketable bonds, average yield: over 10 years",,27,,,6,
+2,"Chartered banks - 90 day term deposits",,32,,,2,
+2,"Chartered bank - conventional mortgage: 1 year",,33,,,2,
+2,"Chartered bank - conventional mortgage: 3 year",,34,,,2,
+2,"Chartered bank - conventional mortgage: 5 year",,35,,,,
+2,"Chartered bank - 5 year personal fixed term",,36,,,2,
+2,"Chartered bank - daily interest savings (balance over $100,000)",,37,,,2,
+2,"Chartered bank - non-chequable savings deposit",,38,,,2,
+2,"Chartered bank - Guaranteed Investment Certificates: 1 year",,39,,,2,
+2,"Chartered bank - Guaranteed Investment Certificates: 3 year",,40,,,2,
+2,"Chartered bank - Guaranteed Investment Certificates: 5 year",,41,,,2,
+2,"Treasury Bills: 1 month",,61,,,,
+2,"Treasury Bills: 2 month",,62,,,,
+2,"Treasury Bills: 3 month",,63,,,,
+2,"Treasury Bills: 6 month",,64,,,,
+2,"Treasury Bills: 1 year",,65,,,,
+2,"Real return bonds, long-term",,66,,,,
+2,"Contractual interest rate for new insured 5-year fixed rate mortgages",,67,,,,
+2,"Benchmark qualifying mortgage rate",,68,,,2,
+
+Symbol Legend
+Description,Symbol
+"not available for a specific reference period",..
+"less than the limit of detection",<LOD
+"value rounded to 0 (zero) where there is a meaningful distinction between true zero and the value that was rounded",0s
+"data quality: excellent",A
+"data quality: very good",B
+"data quality: good",C
+"data quality: acceptable",D
+"use with caution",E
+"too unreliable to be published",F
+"not applicable",...
+preliminary,p
+revised,r
+"suppressed to meet the confidentiality requirements of the Statistics Act",x
+terminated,t
+
+"Survey Code","Survey Name"
+7502,"Bank of Canada"
+
+"Subject Code","Subject Name"
+10,Government
+
+"Note ID",Note
+2,"The most typical of those offered by the major Chartered Banks."
+3,"Prior to April 1973 the rates are averages of rates posted by major finance company participants in the market. From July 1966 to March 1973, the average was weighted by the amount of paper outstanding for each of the finance companies in the average; prior to that time it was unweighted. Between March 1973 and February 1979, the rate shown is the Bank of Canada's best estimate of operative market trading levels for major finance company paper borrowers."
+4,"Mid-market rates for typical quotes."
+5,"Bank of Canada estimate at which investment dealers were able to arrange most of their overnight financing of money market inventory, excluding chartered bank day-to-day loans and purchase and resale agreements with the Bank of Canada. The rates are seven-day average for the week ending with the last Wednesday of the month."
+6,"The yields refer to direct debt payable in Canadian dollars, excluding extendible issues and Canada Savings Bonds. Prior to 1975 some extendible issues are included but their inclusion does not materially affect the calculated average yields. Calculated from Wednesday mid-market closing prices."
+7,"As of January 2019, the Bank of Canada will no longer publish the daily, weekly or monthly prime commercial paper (CP) or bankers’ acceptance (BA) rates. The 1- and 3-month transaction-based BA rates will be publicly available, for informational purposes only, on the website of the Investment Industry Regulatory Organization of Canada (<a href=""http://www.iiroc.ca/industry/marketmonitoringanalysis/Pages/BA-Rate.aspx"">IIROC</a>) on a delayed basis. The historical data for these rates will continue to be available on the Bank of Canada website at the <a href=""https://www.bankofcanada.ca/rates/interest-rates/"">Selected Historical Interest Rates</a> page."
+
+"Correction ID","Correction Date","Correction Note"
+
+
