@@ -63,3 +63,7 @@ We used the rolling window cross evaluation method to validate our model. Two ba
 The graphs below use 2018-05 to 2019-04 and 2018-09 to 2019-08 as training data to forecast the average condo price for GTA in the next 12 months. The percentage error from three-month forecast to twelve-month forecast increases from around 2.5% to 4%. The percentage error increases as we forecast data for a more extended period. The increasing error is reasonable, given the instability of the real estate market. 
 
 ![Error_combined.png](images/Error_combined.png)
+
+## Link to Presentation Slides
+
+https://docs.google.com/presentation/d/1_Hx2klq6_iLwuS5gudjmJaim-R45J-1z/edit#slide=id.gdf3d532875_13_81
