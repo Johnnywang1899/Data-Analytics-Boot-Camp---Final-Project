@@ -54,8 +54,9 @@ A web is planned to provide interactive visualization to users. Such web will sh
 
 ## Results
 
-
+The figure below is a line chart of the forecast average condo price and the actual prices. The test data is from 2017 to April 2021, as shown on the x-axis. The graph shows our forecast has the same trend as the actuals, and most of the turning points are predicted, especially in the period between 2017 to 2019. However, the model can not foresee the occurrence of COVID-19, so the sudden and dramatic drop of the condo price in 2020 was not accurately predicted.
 
 ![Test_long_forecast_2.png](images/Test_long_forecast_2.png)
+
 ![Error_1.png](images/Error_1.png)
 ![Error_2.png](images/Error_2.png)
