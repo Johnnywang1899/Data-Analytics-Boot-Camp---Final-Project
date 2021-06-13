@@ -58,8 +58,8 @@ The figure below is a line chart of the forecast average condo price and the act
 
 ![Test_long_forecast_2.png](images/Test_long_forecast_2.png)
 
-We used the rolling window cross evaluation method to validate our model. Two bar charts below show the percentage error of the forecast data for one month, three months, six months and twelve months. 
+We used the rolling window cross evaluation method to validate our model. Two bar charts below show the mean absolute percentage error (MAPE) of the forecast data for one month, three months, six months and twelve months. 
 
-The graph above uses data from 2018-05 to 2019-04 as training data to forecast the average condo price for GTA in the next 12 months. The percentage error from three-month after to twelve-month after increase from around 2.5% to 4%. 
+The graph on the left uses data from 2018-05 to 2019-04 as training data to forecast the average condo price for GTA in the next 12 months. The percentage error from three-month after to twelve-month after increase from around 2.5% to 4%. 
 
 ![Error_combined.png](images/Error_combined.png)
