@@ -55,3 +55,5 @@ A web is planned to provide interactive visualization to users. Such web will sh
 ## Results
 
 ![Test_long_forecast_2.png](images/Test_long_forecast_2.png)
+![Error_1.png](images/Error_1.png)
+![Error_2.png](images/Error_2.png)
