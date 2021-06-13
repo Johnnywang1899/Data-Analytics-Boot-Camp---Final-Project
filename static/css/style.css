@@ -1,0 +1,84 @@
+/* Global Styles */
+
+html, body {
+  height: 100%;
+  margin-top: 0px;
+  background-color: rgb(244, 248, 253);
+  margin-left:3%; 
+  margin-right:3%
+}
+
+.map-panel {
+  height: 600px; 
+}
+
+.diagram-panel {
+  height: 500px; 
+}
+
+#mapid {
+  position: relative;
+  border: 1px solid rgb(37, 37, 37);
+  border-radius: 8px;
+  height: 600px; 
+  width: 100%;  
+}
+
+#Data_Plot {
+  position: relative;
+  border: 1px solid rgb(37, 37, 37);
+  border-radius: 12px;
+  height: 600px; 
+  width: 100%;  
+}
+
+h1 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 600;
+  font-size: 60px;
+  text-align: center;
+}
+
+h2 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 100;
+  font-size: 30px;
+  text-align: center;
+}
+
+h4 {
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: left;
+}
+
+.page-header {
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #8ca0cc;
+  color: #7485ad;
+}
+
+.panel-primary > .panel-heading {
+  color: #ffffff;
+  background-color: #7485ad;
+  border-color: #7485ad;
+}
+
+.text-dash {
+  color: #4083b9
+}
+
+.text-title{
+  color: #262829;
+}
+
+.bg-dash{
+  background-color: #d7f1fd;
+  color: #3c4042;
+}
+  
+}
+
+

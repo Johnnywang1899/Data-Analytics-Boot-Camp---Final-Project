@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final_project</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- d3 JavaScript -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+ <!-- Title Section -->    
+  <div class="container">
+      <!-- Background image-->
+      <div id="Toronto_photo_slide" class="carousel slide" data-ride="carousel" data-interval="4000">
+        <div class="carousel-inner">
+          <div class="carousel-item active" style="height: 450px;">
+            <img src="https://harveykalles.com/wp-content/uploads/2019/09/noir-condos.jpg" class="d-block w-100" alt="...">
+          </div>
+              
+          <div class="carousel-item" style="height: 450px;">
+            <img src="https://wiki.51agents.com/wp-content/uploads/sites/2/2018/07/toronto.jpg" class="d-block w-100" alt="...">
+          </div>
+
+          <div class="carousel-item" style="height: 450px;">
+            <img src="https://torontorealtyblog.com/wp-content/uploads/2020/08/Toronto-Skyline-Condos-Boats.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+      </div>
+      
+      <hr>
+      
+      <!-- Title -->
+      <div class = "row">
+        <div class = "col-12">
+          <h1 class="text-center" style="text-title">GTA Condo Price Forecast</h1>
+        </div>
+      </div>
+      <hr>
+    </div>
+<!-- Description and Instructions + Whats on this page-->
+    <div class="container">
+      <div class = "row">
+        <div class = "col-3">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="font-size: 18px;">On This Page</h3>
+            </div>
+            <div class="panel-body">
+                <!-- Nav -->
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#Map" style="font-size: 15px;">Interactive Map</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#Diagrams" style="font-size: 15px;">Interactive Diagrams</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#Dashboard" style="font-size: 15px;">Interactive Dashboard</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#Table" style="font-size: 15px;">Interactive Data Table</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#Summary" style="font-size: 15px;">Text Summary</a>
+                  </li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div class = "col-9">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="font-size: 18px;">Introduction</h3>
+            </div>
+            <div class="panel-body">
+              <h6 class="card-text" style="font-size: 16px;">What the page is about</h6>
+              <p class="card-text" style="font-size: 14px;">This web page provides tools for people interested in the real estate market in Greater Toronto Area. It displays the condo price trend in the past 20 years and forecasting condo prices for the next four years.  
+              </p>
+              <h6 class="card-text" style="font-size: 16px;">What tools were used to forecast</h6>
+              <p class="card-text" style="font-size: 14px;">We used Vector Autoregressive Model (VAR), a statistical time series model, to analyse our data. This model captures the relationship between multiple quantities as they change over time with less demand in time and information. In contrast to the normal ARIMA model which only considers a single variable, it measures different quantities.</p>
+              <h6 class="card-text" style="font-size: 16px;">What data was used</h6>
+              <p class="card-text" style="font-size: 14px;">All the data sources used for analysis were collected from public databases. The datasets for factors potentially influencing condo price, such as GDP, the population in Toronto, were provided by government organizations (e.g., Statistic Canada). Economic indexes like metal price and gold price were found on NGO database (e.g. World Bank). Toronto Reginal Real Estate Board, a non-profit NGO published condo sales and price data for listing regions in Toronto. We used those data for average condo price. </p>
+              <h6 class="card-text" style="font-size: 16px;">Legals</h6>
+              <p class="card-text" style="font-size: 14px;">Many factors influence real estate market, our prediction is not guarenteed to reflect the price in the future. Please use this tool with cautious to decide on your purchase. 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div> <hr>
+    </div>
+    
+
+<!-- MAP Title -->
+    <div class="container">
+      <div class="row" id="Map" >
+        <div class = "col-auto">
+          <h2>Interactive Map</h2>
+        </div>
+    </div>
+    <hr>
+<!-- MAP Section -->
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="panel panel-primary map-panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">What Data Do You Need?</h3>
+            </div>
+            <div class="panel-body">
+                <label>Select Data Type</label>
+                <select class="form-control" id="dropDownListType" onchange="typeOptionChange(this.value)">
+                    <option value="" disabled selected hidden>Please select a type</option>
+                    <option value="Historic">Historic</option>
+                    <option value="Forecast">Forecast</option>
+                </select><br>
+
+                <label>Select Time</label>
+                <select class="form-control" id="dropDownListTime" onchange="timeOptionChange(this.value)">
+                    <option value="" disabled selected hidden>Please select a date</option>
+                </select>
+            </div>
+        </div>
+    </div>
+        <div class="col-lg-9">
+          <div id="mapid"></div>
+        </div>
+      </div><hr>
+    </div>
+    
+
+<!--Diagrams Title -->
+<div class="container">
+  <div class="row" id="Diagrams" >
+    <div class = "col-auto">
+      <h2>Interactive Diagrams</h2>
+    </div>
+</div>
+<hr>
+    <!--Interactive Diagrams Section -->
+    <div calss="row">
+      <div class="col-lg-2">
+        <div class="panel panel-primary diagram-panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Select Input</h3>
+            </div>
+            <div class="panel-body">
+                <label>Select Data Type</label>
+                <select class="form-control" id="dropDownListType_diagram_1" onchange="typeOptionChange_diagram_1(this.value)">
+                    <option value="" disabled selected hidden>Please select a type</option>
+                    <option value="Historic">Historic</option>
+                    <option value="Forecast">Forecast</option>
+                </select><br>
+
+                <label>Select Time Range</label>
+                <h5>Start Date:</h5>
+                <select class="form-control" id="dropDownListTime_start_1" onchange="timeOptionChange_diagram_start_1(this.value)">
+                    <option value="" disabled selected hidden>Please select the start date</option>
+                </select>
+                <h5>End Date:</h5>
+                <select class="form-control" id="dropDownListTime_end_1" onchange="timeOptionChange_diagram_end_1(this.value)">
+                    <option value="" disabled selected hidden>Please select the end date</option>
+                </select><br>
+
+                <label>Select Region</label>
+                <select class="form-control" id="dropDownListType_region_1" onchange="typeOptionChange_region_1(this.value)">
+                    <option value="" disabled selected hidden>Please select a region</option>
+                    <option value="C01">C01</option>
+                    <option value="C02">C02</option>
+                    <option value="C03">C03</option>
+                    <option value="C04">C04</option>
+                    <option value="C06">C06</option>
+                    <option value="C07">C07</option>
+                    <option value="C08">C08</option>
+                    <option value="C09">C09</option>
+                    <option value="C10">C10</option>
+                    <option value="C11">C11</option>
+                    <option value="C12">C12</option>
+                    <option value="C13">C13</option>
+                    <option value="C14">C14</option>
+                    <option value="C15">C15</option>
+                    <option value="E01">E01</option>
+                    <option value="E02">E02</option>
+                    <option value="E03">E03</option>
+                    <option value="E04">E04</option>
+                    <option value="E05">E05</option>
+                    <option value="E06">E06</option>
+                    <option value="E07">E07</option>
+                    <option value="E08">E08</option>
+                    <option value="E09">E09</option>
+                    <option value="E10">E10</option>
+                    <option value="E11">E11</option>
+                    <option value="W01">W01</option>
+                    <option value="W02">W02</option>
+                    <option value="W03">W03</option>
+                    <option value="W04">W04</option>
+                    <option value="W05">W05</option>
+                    <option value="W06">W06</option>
+                    <option value="W07">W07</option>
+                    <option value="W08">W08</option>
+                    <option value="W09">W09</option>
+                    <option value="W10">W10</option>
+                    <option value="All">All</option>
+                </select><br>
+                <button type="confirmButton" onclick="buttonClicked()">Confirm</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="panel panel-primary diagram-panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Select Input (optional)</h3>
+            </div>
+            <div class="panel-body">
+                <label>Select Data Type</label>
+                <select class="form-control" id="dropDownListType_diagram_2" onchange="typeOptionChange_diagram_2(this.value)">
+                    <option value="" disabled selected hidden>Please select a type</option>
+                    <option value="Historic">Historic</option>
+                    <option value="Forecast">Forecast</option>
+                </select><br>
+
+                <label>Select Time Range</label>
+                <h5>Start Date:</h5>
+                <select class="form-control" id="dropDownListTime_start_2" onchange="timeOptionChange_diagram_start_2(this.value)">
+                    <option value="" disabled selected hidden>Please select the start date</option>
+                </select>
+                <h5>End Date:</h5>
+                <select class="form-control" id="dropDownListTime_end_2" onchange="timeOptionChange_diagram_end_2(this.value)">
+                    <option value="" disabled selected hidden>Please select the end date</option>
+                </select><br>
+
+                <label>Select Region</label>
+                <select class="form-control" id="dropDownListType_region_2" onchange="typeOptionChange_region_2(this.value)">
+                    <option value="" disabled selected hidden>Please select a region</option>
+                    <option value="C01">C01</option>
+                    <option value="C02">C02</option>
+                    <option value="C03">C03</option>
+                    <option value="C04">C04</option>
+                    <option value="C06">C06</option>
+                    <option value="C07">C07</option>
+                    <option value="C08">C08</option>
+                    <option value="C09">C09</option>
+                    <option value="C10">C10</option>
+                    <option value="C11">C11</option>
+                    <option value="C12">C12</option>
+                    <option value="C13">C13</option>
+                    <option value="C14">C14</option>
+                    <option value="C15">C15</option>
+                    <option value="E01">E01</option>
+                    <option value="E02">E02</option>
+                    <option value="E03">E03</option>
+                    <option value="E04">E04</option>
+                    <option value="E05">E05</option>
+                    <option value="E06">E06</option>
+                    <option value="E07">E07</option>
+                    <option value="E08">E08</option>
+                    <option value="E09">E09</option>
+                    <option value="E10">E10</option>
+                    <option value="E11">E11</option>
+                    <option value="W01">W01</option>
+                    <option value="W02">W02</option>
+                    <option value="W03">W03</option>
+                    <option value="W04">W04</option>
+                    <option value="W05">W05</option>
+                    <option value="W06">W06</option>
+                    <option value="W07">W07</option>
+                    <option value="W08">W08</option>
+                    <option value="W09">W09</option>
+                    <option value="W10">W10</option>
+                    <option value="All">All</option>
+                </select><br>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <div id="Data_Plot"></div>
+    </div>
+  </div>
+  <hr>
+  </div>
+    
+
+    <!--Dashboard Title -->
+    <div class="container">
+      <div class="row" id="Dashboard" >
+        <div class = "col-auto">
+          <h2>Interactive Dashboard</h2>
+        </div>
+    </div><hr>
+    
+<!--Dashboard Section-->
+  <div class="row">
+    <div class="col-sm-12">
+            <h4> Section 1: Forecast Data</h4>
+            <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <div class="panel panel-primary" style="height: 230px">
+        <div class="panel-heading">
+            <h3 class="panel-title">Dashboard Filter</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="list-group">
+            <li class="list-group-item">
+                <label for="Date">Enter a Date
+                </label>
+                <br><input type="text" placeholder="2001-01-01" id="foreDate" onchange="fore_date_input()"/>
+              </li>
+
+              <li class="list-group-item">
+                <label for="Area_Code">Enter an Area_code
+                </label>
+                <br><input type="text" placeholder="E01" id="foreArea_Code" onchange="fore_area_code_input()"/>
+              </li>
+              <br>
+                
+                <button type="button" class = "btn btn-outline-dark" onclick="clearfore()">Clear Input</button>
+            </ul>
+
+        </div>     
+    </div>
+    </div>
+    <div class="col-4">
+      <div class="card border" style="height: 230px">
+        <div class="card-header bg-dash" style="font-weight: bold; font-size: x-large; height: 50px; text-align: center;">Average Price</div>
+        <div class="card-body text-dash">
+          <h5 id="avgpricefore" style="font-size: 25px; font-weight: bold; text-align: center; "> <br>Average price will be <br>displayed here</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="card border" style="height: 230px">
+        <div class="card-header bg-dash" style="font-weight: bold; font-size: x-large; height: 50px; text-align: center;">Price Increase Rate</div>
+        <div class="card-body text-dash">
+          <h5 id="increaseratefore" style="font-size: 25px; font-weight: bold; text-align: center; vertical-align: middle;"><br>Increase Rate will be <br>displayed here</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+
+  <div class="row">
+    <div class="col-sm-12">
+            <h4> Section 2: Historic Data</h4><br>
+    </div>
+  </div>
+  
+    <div class="row">
+      <div class="col-3">
+        <div class="panel panel-primary" style="height: 230px">
+          <div class="panel-heading">
+              <h3 class="panel-title">Dashboard Filter</h3>
+          </div>
+          <div class="panel-body">
+            <ul class="list-group">
+              <li class="list-group-item">
+                  <label for="Date">Enter a Date
+                  </label>
+                  <br><input type="text" placeholder="2001-01-01" id="hisDate" onchange="his_date_input()"/>
+                </li>
+  
+                <li class="list-group-item">
+                  <label for="Area_Code">Enter an Area_code
+                  </label>
+                  <br><input type="text" placeholder="E01" id="hisArea_Code" onchange="his_area_code_input()"/>
+                </li>
+                <br>
+                
+                <button type="button" class = "btn btn-outline-dark" onclick="clearhis()">Clear Input</button>
+              </ul>
+          </div>     
+      </div>
+      </div>
+      <div class="col-3">
+        <div class="card border" style="height: 230px">
+          <div class="card-header bg-dash" style="font-weight: bold; font-size: x-large; height: 50px; text-align: center;">Average Price</div>
+          <div class="card-body text-dash">
+            <h5 id="avgpricehis" style="font-size: 25px; font-weight: bold; text-align: center; vertical-align: middle;"><br>Average price will be displayed here</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="card border" style="height: 230px">
+          <div class="card-header bg-dash" style="font-weight: bold; font-size: x-large; height: 50px; text-align: center;">Price Increase Rate</div>
+          <div class="card-body text-dash">
+            <h5 id="increaseratehis" style="font-size: 25px; font-weight: bold; text-align: center; vertical-align: middle;"><br>Increase Rate will be displayed here</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="card border" style="height: 230px">
+          <div class="card-header bg-dash" style="font-weight: bold; font-size: x-large; height: 50px; text-align: center;">Average New Listing</div>
+          <div class="card-body text-dash">
+            <h5 id="newlistinghis" style="font-size: 25px; font-weight: bold; text-align: center; vertical-align: middle;"><br>Average New Listing will be displayed here</h5>
+          </div>
+        </div>
+      </div>
+  </div><hr>
+</div>
+
+
+
+<!--data table Title -->
+<div class="container">
+  <div class="row" id="Table" >
+    <div class = "col-auto">
+      <h2>Interactive Data Table</h2>
+    </div>
+</div><hr>
+
+
+    <!--Interactive Data Table Section -->
+    <div class="row">
+      <div class="col-3">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Filter Search</h3>
+          </div>
+          <div class="panel-body" id = "tableinput">
+            <ul class="list-group">
+            <li class="list-group-item">
+                <label for="Date">Enter a Date
+                </label>
+                <br><input type="text" placeholder="2001-01-01" id="Date"/>
+              </li>
+              <li class="list-group-item">
+                <label for="Month">Enter a Month
+                </label>
+                <br><input type="text" placeholder="1" id="Month"/>
+              </li>
+              <li class="list-group-item">
+                <label for="Area_Code">Enter an Area_code
+                </label>
+                <br><input type="text" placeholder="E01" id="Area_Code"/>
+              </li>
+              <li class="list-group-item">
+                  <label for="Average_Price_Month">Enter your Budget</label>
+                  <br><input type="number" placeholder=100000 id="Average_Price_Month"/>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-9 table-responsive" style="height: 700px; overflow: auto; position: relative;">
+        <table class="table table-bordered table-hover" style="width: 100%; text-align: center; vertical-align: top;" >
+            <thead >
+              <tr class="table-light" style="font-size: 15px;">
+                <th style="position: sticky; top: 0;">Date (YYYY/MM/DD)</th>
+                <th style="position: sticky; top: 0;">Area Code</th>
+                <th style="position: sticky; top: 0;">Total Condo Sold Number</th>
+                <th style="position: sticky; top: 0;">Average Price</th>
+                <th style="position: sticky; top: 0;">Median Price</th>
+                <th style="position: sticky; top: 0;">Prime Rate</th>
+                <th style="position: sticky; top: 0;">Inflation</th>
+                <th style="position: sticky; top: 0;">GDP</th>
+                <th style="position: sticky; top: 0;">Metal_Price</th>
+                <th style="position: sticky; top: 0;">NASDAQ Index</th>
+                <th style="position: sticky; top: 0;">Ontario International Immigrants</th>
+                <th style="position: sticky; top: 0;">Toronto Median Age</th>
+                <th style="position: sticky; top: 0;">U of T Total Enrollment</th>
+                <th style="position: sticky; top: 0;">Toronto Participation Rate</th>
+                <th style="position: sticky; top: 0;">Toronto Employment Rate</th>
+                <th style="position: sticky; top: 0;">Toronto Population</th> 
+                <th style="position: sticky; top: 0;">New Units Number (Planned)</th>
+                <th style="position: sticky; top: 0;">New Units Number (Construction)</th>
+                <th style="position: sticky; top: 0;">Month</th>
+
+              </tr>
+            </thead>
+            <tbody class = "table-light" style="text-align: center; font-size: 14px;"></tbody>
+          </table>
+      </div>
+    </div><hr>
+    </div>
+    
+
+     <!-- Text Summary  Section-->
+     <div class="container" id="Summary">
+      <div class = "col-auto">
+        <h2>Text Summary</h2>
+      </div>
+      <hr>
+        <p style="font-size: 18px;">
+          This model is for condo price forecasting in the downtown Toronto area. In this model, the price prediction factors included historical condo selling price statistical data and other factors.  Considering real estate products are financial derivatives, the economic factors were considered for testing and training this model. Additionally, to explore the influence of the population change on real estate transaction price, related data was quantitatively analyzed in this model. More factors will be concerned and tested in future model updating to approve the accuracy of forecasting results.<br><br>
+
+          Through HTML web pages, we can visually observe and analyze the research results more intuitively. The functions of the website include 1. Interactive Diagrams: query historical or predicted condo prices in the map according to the region; 2. Dashboard: obtain data comparison line graphs through retrieval; 3. Data Table: filter query data in the form of tables.<br><br>
+  
+          In data analysis, we used Vector Autoregressive Model (VAR) because our dataset includes yearly, monthly and daily data. In addition, VAR could help to generalize the single-variable autoregressive model by allowing for multivariate time series. Due to the limitation of searching data, the earliest data used in this model is from January 2000. Since the continuity of data time in the dataset is inconsistent, we need to choose a model with less stringent requirements for time and information during analysis. And this model needs to capture the relationship between multiple quantities that change over time and predict serial numbers through time series. VAR satisfies the above requirements well. This prediction model uses Correlation Heatmap for feature engineering. In addition, the month is added as an extracted feature to evaluate sessional influencing factors through industry insights and analysis.<br><br>
+  
+          This prediction model uses Correlation Heatmap for feature engineering. In addition, the month is added as an extracted feature to evaluate sessional influencing factors through industry insights and analysis. And through the use of the following analysis methods: PCA Feature Reduction, Granger Causality Test for VAR, Johansen test for VAR, ADFuller test to check for stationarity, Differencing to make dataset stationery, and Durbin–Watson Test.<br><br>
+  
+          Model Accuracy Evaluation: More accurate results can be obtained if predict condo price within six months with this model. However, due to the scope of data quantity and frequency, there are errors in the prediction results. In the future, we will look for more data to achieve more accurate condo price forecasts.
+        </p>
+        <hr>
+      <!--
+      </div>
+      <div class="container" id="Summary">
+        <div class = "col-auto">
+          <h2>Vector Autoregressive (VAR) Models and Granger Causality in Time Series Analysis</h2>
+        </div>
+          <p>
+            Vector autoregressive (VAR) modelling with Granger causality tests is one of the most flexible ways to elucidate underlying causal mechanisms in time series data.  Granger causality is a concept of causality derived from the notion that causes may not occur after effects. Thus, if one variable is the cause of another, knowing the cause at an earlier point in time can enhance prediction of the impact later in time.  The VAR model has been widely employed in econometric analyses and neurobiology to elucidate underlying mechanisms using Granger causality.
+          </p>
+        </div>
+        //-->
+      </div>
+      <div class="container" id="Summary">
+        <div class = "col-auto">
+          <h2>Related Readings</h2>
+        </div>
+        <hr>
+        <a href="https://towardsdatascience.com/principal-component-analysis-for-dimensionality-reduction-115a3d157bad" style="font-size: 18px;">1. PCA Feature Reduction</a><br><br>
+        <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5161241/" style="font-size: 18px;">2. Granger Causality</a><br><br>
+        <a href="https://www.quantstart.com/articles/Johansen-Test-for-Cointegrating-Time-Series-Analysis-in-R/" style="font-size: 18px;">3. Johansen test</a><br><br>
+        <a href="https://www.quantstart.com/articles/Johansen-Test-for-Cointegrating-Time-Series-Analysis-in-R/" style="font-size: 18px;">4. ADFuller test to check for stationarity</a><br><br>
+        <a href="https://otexts.com/fpp2/stationarity.html" style="font-size: 18px;">5. Differencing to make dataset stationery</a><br><br>
+        <a href="https://www.investopedia.com/terms/d/durbin-watson-statistic.asp" style="font-size: 18px;">6. Durbin–Watson Test</a><br><br>
+      </div>
+        <hr>
+  
+
+
+
+
+    <!-- Bootstrap's JavaScript Files -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+   
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <!-- API key -->
+    <script type="text/javascript" src="static/js/config.js"></script>
+
+    <!-- Our JavaScript -->
+    <script type="text/javascript" src="static/js/Historic_Forecast_Data.js"></script>
+    <script type="text/javascript" src="static/js/Historic_Time.js"></script>
+    <script type="text/javascript" src="static/js/Forecast_Time.js"></script>
+    <script type="text/javascript" src="static/js/logic.js"></script>
+    <script type="text/javascript" src="static/js/data_new.js"></script>
+    <script type="text/javascript" src="static/js/dashboard.js"></script>
+    <script src="static/js/data.js"></script>
+    <script src="static/js/table_logic.js"></script> 
+    <script></script>
+</body>
+
+</html>
