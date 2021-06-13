@@ -51,3 +51,7 @@ The data processed in the previous step will be split into training and testing 
 
 ## Visualization
 A web is planned to provide interactive visualization to users. Such web will show the geographic appearance of the Toronto Area (MapBox) with the options for users to explore different districts in this area. Moreover, pop-up messages will be created for users to gain detailed information including the current condo selling situation in the Toronto area as well as the predictions for the future. To better provide a visual experience, Plotly will be used to generate line diagrams of sale information to provide basic trending. If time allows, more detailed analysis will be conducted for each district in Toronto so that users will be able to gain more comprehensive results of Condo sale pricing in the Toronto area.
+
+## Results
+
+![Ride_Sharing_Summary.png](analysis/Ride_Sharing_Summary.png)
