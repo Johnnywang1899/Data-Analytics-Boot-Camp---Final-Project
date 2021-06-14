@@ -1,5 +1,5 @@
 # Data-Analytics-Boot-Camp---Final-Project
-Group #9 - Yining Wang, Changsong Yang, Ziqin Zhu, Xinpei Wang
+Group #9 - Yining Wang, Changsong Yang, Ziqin Zhu, Xinpei Wang  
 Project Web Link: https://johnnywang1899.github.io/Data-Analytics-Boot-Camp---Final-Project/
 
 
