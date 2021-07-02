@@ -22,6 +22,7 @@ var start_date_2;
 var end_date_2;
 var region_1 = "C01";
 var region_2 = "C01";
+var region_extra = "All";
 
 // Initialize the flag for lines
 var line_1_flag = 0;
@@ -277,6 +278,19 @@ function getPriceInfo(region) {
     }
 }
 
+function getInfo_extra_withdate(region, date) {
+    const area = data.find(item => item.Area_Code === region & item.Date === date);
+    if (area) {
+        const retval = {
+            date: area.Date,
+            totalNum: parseInt(area.Total_Condo_Sold_Number),
+            nasdaqIndex: parseFloat(area.NASDAQ),
+            metalPrice: parseFloat(area.Metal_Price)
+        };
+        return retval;
+    }
+}
+
 function getPriceInfo_withdate(region, date_select) {
     const area = diagram_data.find(item => item.Area_Code === region & item.Date === date_select);
     if (area) {
@@ -388,6 +402,92 @@ function typeOptionChange_diagram_2(selected_type){
     }
 }
 
+
+function typeOptionChange_diagram_extra(selected_data){
+    var date_extra = [];
+    var value_extra = [];
+    var data_plot;
+
+    if (selected_data !== "condo_num"){
+        // Data not related to region so disable the second drop downlist
+        itemDisable = d3.select("#dropDownListType_region_extra");
+        itemDisable.attr("disabled", "");
+        buttonDisable = d3.select("#button_extra");
+        buttonDisable.attr("disabled", "");
+        
+        // Ues "W01" area as default
+
+        if (selected_data === "nasdaq"){
+            window.historic_time_ascending.forEach((time) => {
+                if (!time.Date.startsWith("2000")){
+                    data_plot = getInfo_extra_withdate("W01", time.Date);
+                    date_extra.push(time.Date);
+                    value_extra.push(data_plot.nasdaqIndex);
+                }
+            })
+            var trace_extra = {
+                x : date_extra,
+                y : value_extra,
+                type : 'scatter',
+                name : 'NASDAQ Index'
+            }
+        }
+        else if (selected_data === "metal_price"){
+            window.historic_time_ascending.forEach((time) => {
+                if (!time.Date.startsWith("2000")){
+                    data_plot = getInfo_extra_withdate("W01", time.Date);
+                    date_extra.push(time.Date);
+                    value_extra.push(data_plot.metalPrice);
+                }
+            })
+            var trace_extra = {
+                x : date_extra,
+                y : value_extra,
+                type : 'scatter',
+                name : 'Construction (Metal) Price'
+            }
+        }
+        var layout_extra = {
+            title:{
+                text: "Historic Data Plot",
+                font:{
+                    family:'Arial',
+                    size:18,
+                    color:'black'
+                },
+                x : 0.5,
+            },
+            xaxis:{
+                title:{
+                    text: 'Date',
+                    font:{
+                        family: 'Arial',
+                        size:12,
+                        color:'black'
+                    }
+                },
+            },
+            yaxis:{
+                title:{
+                    text: 'Value',
+                    font:{
+                        family: 'Arial',
+                        size:12,
+                        color:'black'
+                    }
+                }
+            }
+        };
+        Plotly.newPlot("Data_Plot_extra", [trace_extra], layout_extra);
+    }
+    else {
+        var itemDisable = document.getElementById("dropDownListType_region_extra");
+        itemDisable.removeAttribute("disabled");
+        var buttonDiable = document.getElementById("button_extra");
+        buttonDiable.removeAttribute("disabled");
+    }
+}
+
 function timeOptionChange(selected_date){
     map.closePopup()
     var date_condition = selected_date;
@@ -472,6 +572,10 @@ function timeOptionChange_diagram_end_2(selected_date_end){
 
 function typeOptionChange_region_2(selected_region){
     window.region_2 = selected_region;
+}
+
+function typeOptionChange_region_extra(region){
+    window.region_extra = region;
 }
 
 function buttonClicked(){
@@ -604,6 +708,58 @@ function buttonClicked(){
     }
 }
 
+function buttonClicked_extra(){
+    var date_extra = [];
+    var value_extra = [];
+    var data_plot;
+
+    window.historic_time_ascending.forEach((time) => {
+        if (!time.Date.startsWith("2000")){
+            data_plot = getInfo_extra_withdate(window.region_extra, time.Date);
+            date_extra.push(time.Date);
+            value_extra.push(data_plot.totalNum);
+        }
+    })
+    var trace_extra = {
+        x : date_extra,
+        y : value_extra,
+        type : 'scatter',
+        name : 'Total Number of Condo Units Sale'
+    }
+    var layout_extra = {
+        title:{
+            text: "Historic Data Plot",
+            font:{
+                family:'Arial',
+                size:18,
+                color:'black'
+            },
+            x : 0.5,
+        },
+        xaxis:{
+            title:{
+                text: 'Date',
+                font:{
+                    family: 'Arial',
+                    size:12,
+                    color:'black'
+                }
+            },
+        },
+        yaxis:{
+            title:{
+                text: 'Value',
+                font:{
+                    family: 'Arial',
+                    size:12,
+                    color:'black'
+                }
+            }
+        }
+    };
+    Plotly.newPlot("Data_Plot_extra", [trace_extra], layout_extra);
+}
+
 //Grabbing our GeoJSON data.
 d3.json(torontoHoods).then(function(data){
 
@@ -644,19 +800,16 @@ var y_value_ini;
 window.historic_time_ascending.forEach((historicTime) => {
     date_ini.push(historicTime.Date);
 })
-console.log(date_ini);
 
 date_ini.forEach((each_date_ini) => {
     y_value_ini = getPriceInfo_withdate(region_ini_1, each_date_ini);
     price_ini_1.push(y_value_ini.avg_price);
 })
-console.log(price_ini_1);
 
 date_ini.forEach((each_date_ini) => {
     y_value_ini = getPriceInfo_withdate(region_ini_2, each_date_ini);
     price_ini_2.push(y_value_ini.avg_price);
 })
-console.log(price_ini_2);
 
 var trace_1_ini = {
     x : date_ini,
@@ -702,6 +855,58 @@ var layout = {
     }
 };
 Plotly.newPlot("Data_Plot", [trace_1_ini, trace_2_ini], layout);
+
+
+// For plot #2
+var date_extra = [];
+var value_extra = [];
+var data_plot;
+
+window.historic_time_ascending.forEach((time) => {
+    if (!time.Date.startsWith("2000")){
+        data_plot = getInfo_extra_withdate(window.region_extra, time.Date);
+        date_extra.push(time.Date);
+        value_extra.push(data_plot.totalNum);
+    }
+})
+var trace_extra = {
+    x : date_extra,
+    y : value_extra,
+    type : 'scatter',
+    name : 'Total Number of Condo Units Sale'
+}
+var layout_extra = {
+    title:{
+        text: "Historic Data Plot",
+        font:{
+            family:'Arial',
+            size:18,
+            color:'black'
+        },
+        x : 0.5,
+    },
+    xaxis:{
+        title:{
+            text: 'Date',
+            font:{
+                family: 'Arial',
+                size:12,
+                color:'black'
+            }
+        },
+    },
+    yaxis:{
+        title:{
+            text: 'Value',
+            font:{
+                family: 'Arial',
+                size:12,
+                color:'black'
+            }
+        }
+    }
+};
+Plotly.newPlot("Data_Plot_extra", [trace_extra], layout_extra);
 
 // We create the light view tile layer that will be an option for our map.
 var light = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {

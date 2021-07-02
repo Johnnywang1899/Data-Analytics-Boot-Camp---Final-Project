@@ -48,7 +48,7 @@
       <!-- Title -->
       <div class = "row">
         <div class = "col-12">
-          <h1 class="text-center" style="text-title">GTA Condo Price Forecast</h1>
+          <h1 class="text-center text-title">GTA Condo Price Forecast</h1>
         </div>
       </div>
       <hr>
@@ -59,7 +59,7 @@
         <div class = "col-3">
           <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title" style="font-size: 18px;">On This Page</h3>
+                <h3 class="panel-title" style="font-size:18px;">On This Page</h3>
             </div>
             <div class="panel-body">
                 <!-- Nav -->
@@ -291,7 +291,80 @@
     </div>
   </div>
   <hr>
+</div>
+
+<div class="container">
+  <div class="row" id="Diagrams" >
+    <div class = "col-auto">
+      <h2>Interactive Historical Data</h2>
+    </div>
   </div>
+<hr>
+    <!--Interactive Diagrams Section -->
+    <div calss="row">
+      <div class="col-lg-4">
+        <div class="panel panel-primary diagram-panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Select Input</h3>
+            </div>
+            <div class="panel-body">
+                <label>Select Data</label>
+                <select class="form-control" id="dropDownListType_diagram_extra" onchange="typeOptionChange_diagram_extra(this.value)">
+                    <option value="" disabled selected hidden>Please select the data need view</option>
+                    <option value="condo_num">Total Condo Number Sold</option>
+                    <option value="metal_price">Constructure Materials (metal) Price</option>
+                    <option value="nasdaq">NASDAQ Index</option>
+                </select><br>
+                <label>Select Region</label>
+                <select class="form-control" id="dropDownListType_region_extra" onchange="typeOptionChange_region_extra(this.value)">
+                    <option value="" disabled selected hidden>Please select a region</option>
+                    <option value="C01">C01</option>
+                    <option value="C02">C02</option>
+                    <option value="C03">C03</option>
+                    <option value="C04">C04</option>
+                    <option value="C06">C06</option>
+                    <option value="C07">C07</option>
+                    <option value="C08">C08</option>
+                    <option value="C09">C09</option>
+                    <option value="C10">C10</option>
+                    <option value="C11">C11</option>
+                    <option value="C12">C12</option>
+                    <option value="C13">C13</option>
+                    <option value="C14">C14</option>
+                    <option value="C15">C15</option>
+                    <option value="E01">E01</option>
+                    <option value="E02">E02</option>
+                    <option value="E03">E03</option>
+                    <option value="E04">E04</option>
+                    <option value="E05">E05</option>
+                    <option value="E06">E06</option>
+                    <option value="E07">E07</option>
+                    <option value="E08">E08</option>
+                    <option value="E09">E09</option>
+                    <option value="E10">E10</option>
+                    <option value="E11">E11</option>
+                    <option value="W01">W01</option>
+                    <option value="W02">W02</option>
+                    <option value="W03">W03</option>
+                    <option value="W04">W04</option>
+                    <option value="W05">W05</option>
+                    <option value="W06">W06</option>
+                    <option value="W07">W07</option>
+                    <option value="W08">W08</option>
+                    <option value="W09">W09</option>
+                    <option value="W10">W10</option>
+                    <option value="All">All</option>
+                </select><br>
+                <button type="confirmButton_extra" id="button_extra" onclick="buttonClicked_extra()">Confirm</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8">
+      <div id="Data_Plot_extra"></div>
+    </div>
+  </div>
+<hr>
+</div>
     
 
     <!--Dashboard Title -->
@@ -554,13 +627,13 @@
     <script type="text/javascript" src="static/js/config.js"></script>
 
     <!-- Our JavaScript -->
+    <script src="static/js/data.js"></script>
     <script type="text/javascript" src="static/js/Historic_Forecast_Data.js"></script>
     <script type="text/javascript" src="static/js/Historic_Time.js"></script>
     <script type="text/javascript" src="static/js/Forecast_Time.js"></script>
     <script type="text/javascript" src="static/js/logic.js"></script>
     <script type="text/javascript" src="static/js/data_new.js"></script>
     <script type="text/javascript" src="static/js/dashboard.js"></script>
-    <script src="static/js/data.js"></script>
     <script src="static/js/table_logic.js"></script> 
     <script></script>
 </body>
