@@ -50,6 +50,29 @@ function updateFilters() {
     filterTable();
   
   }
+
+  function update_dropdown_month(month_selected){
+    if(month_selected){
+      filters["table_month"] = month_selected
+    }
+    
+    else{
+      delete filters["table_month"]
+    }
+    filterTable();
+  }
+
+  function update_dropdown_area(area_selected){
+    if(area_selected){
+      filters["table_area"] = area_selected
+    }
+    
+    else{
+      delete filters["table_area"]
+    }
+    filterTable();
+  }
+  
   
   // 7. Use this function to filter the table when data is entered.
 function filterTable() {
@@ -64,13 +87,13 @@ function filterTable() {
         if (filterid === "Date"){
           filteredData = filteredData.filter(row => row.Date === filters[filterid]);
         }
-        if (filterid === "Area_Code"){
+        if (filterid === "table_area"){
             filteredData = filteredData.filter(row => row.Area_Code === filters[filterid]);
         }
         if (filterid === "Average_Price_Month"){
             filteredData = filteredData.filter(row => row.Avg_Price <= filters[filterid]);
         }
-        if (filterid === "Month"){
+        if (filterid === "table_month"){
             filteredData = filteredData.filter(row => row.Month.toString() === filters[filterid]);
         }
     }
@@ -81,12 +104,19 @@ function filterTable() {
   }
 
 
-  
+  function clear_table_input(){
+    document.getElementById('Date').value = ''
+    document.getElementById('table_month').value = ''
+    document.getElementById('table_area').value = ''
+    document.getElementById('Average_Price_Month').value = ''
+    filters = {};
+    buildTable(current_data);
+  }
   // 2. Attach an event to listen for changes to each filter
   d3.select("#tableinput").selectAll("input").on("change", updateFilters);
   
 
-  // Build the table when the page loads
+  // Build the table when the page loads, use data for 2021-04 as default data
   var current_data = all_data;
   current_data = current_data.filter(row => row.Date === "2021-04-01");
   buildTable(current_data);
