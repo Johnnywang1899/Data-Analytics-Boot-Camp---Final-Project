@@ -26,9 +26,9 @@ html, body {
 
 #Data_Plot {
   position: relative;
-  border: 1px solid rgb(37, 37, 37);
-  border-radius: 12px;
-  height: 600px; 
+  /* border: 1px solid rgb(37, 37, 37);
+  border-radius: 12px; */
+  height: 550px; 
   width: 100%;  
 }
 
