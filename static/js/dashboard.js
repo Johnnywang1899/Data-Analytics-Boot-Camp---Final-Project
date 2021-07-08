@@ -92,8 +92,6 @@ function his_updatedashFilters() {
         his_regionOptionChange_Dashboard();
         //change the flag back to 0
         window.his_dash_flag = 0;
-        document.getElementById('hisArea_Code').value = '';
-        document.getElementById('hisDate').value = ''
         console.log(his_dash_flag);
     }
     else{

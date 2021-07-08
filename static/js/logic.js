@@ -449,7 +449,7 @@ function typeOptionChange_diagram_extra(selected_data){
         }
         var layout_extra = {
             title:{
-                text: "Historic Data Plot",
+                text: "Historical Data Plot",
                 font:{
                     family:'Arial',
                     size:18,
@@ -728,7 +728,7 @@ function buttonClicked_extra(){
     }
     var layout_extra = {
         title:{
-            text: "Historic Data Plot",
+            text: "Historical Data Plot",
             font:{
                 family:'Arial',
                 size:18,
@@ -877,7 +877,7 @@ var trace_extra = {
 }
 var layout_extra = {
     title:{
-        text: "Historic Data Plot",
+        text: "Historical Data Plot",
         font:{
             family:'Arial',
             size:18,
